@@ -62,7 +62,7 @@
           <style class="default" />
           <lifeline classifier-name="" is-active="false" is-multi-object="false" />
         </item>
-        <item id="mdip849239985545140461_686639798101655261" cid="LL002" type="lifeline" name="UpdateRoom_Bussiness" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:19:01">
+        <item id="mdip849239985545140461_686639798101655261" cid="LL002" type="lifeline" name="UpdateFaculty_Bussiness" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:19:01">
           <stereotypes>
             <stereotype name="control" />
           </stereotypes>
@@ -72,7 +72,7 @@
           <style class="default" />
           <lifeline classifier-name="" is-active="false" is-multi-object="false" />
         </item>
-        <item id="mdip849239985545140461_113011615726747131" cid="LL004" type="lifeline" name="UpdateRoom_Form" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:19:49">
+        <item id="mdip849239985545140461_113011615726747131" cid="LL004" type="lifeline" name="UpdateFaculty_Form" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:19:49">
           <stereotypes>
             <stereotype name="boundary" />
           </stereotypes>
@@ -88,7 +88,7 @@
           <associated-diagrams />
           <owned-items />
           <style class="default" />
-          <sequence-action type="call" message="Sửa đổi thông tin phòng ban" is-asynchronous="false" return-value="" assign-to-variable="">
+          <sequence-action type="call" message="cập nhật thông tin đơn vị" is-asynchronous="false" return-value="" assign-to-variable="">
             <parameters />
           </sequence-action>
         </item>
@@ -113,7 +113,7 @@
           <associated-diagrams />
           <owned-items />
           <style class="default" />
-          <sequence-action type="call" message="UpdateRoom(data, IDRoom)" is-asynchronous="false" return-value="" assign-to-variable="">
+          <sequence-action type="call" message="UpdateFaculty(data, IDRoom)" is-asynchronous="false" return-value="" assign-to-variable="">
             <parameters />
           </sequence-action>
         </item>
@@ -301,9 +301,137 @@
             <parameters />
           </sequence-action>
         </item>
+        <item id="mdip361642269224069808_406682435793791401" cid="AC001" type="actor" name="SManager" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:18:47">
+          <stereotypes />
+          <tagged-values />
+          <associated-diagrams />
+          <owned-items />
+          <style class="default" />
+        </item>
+        <item id="mdip361642269224069808_545257674919615111" cid="LL001" type="lifeline" name="Linq" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:18:51">
+          <stereotypes>
+            <stereotype name="entity" />
+          </stereotypes>
+          <tagged-values />
+          <associated-diagrams />
+          <owned-items />
+          <style class="default" />
+          <lifeline classifier-name="" is-active="false" is-multi-object="false" />
+        </item>
+        <item id="mdip361642269224069808_359486369561830177" cid="LL002" type="lifeline" name="ViewSumReport_Bussiness" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:19:01">
+          <stereotypes>
+            <stereotype name="control" />
+          </stereotypes>
+          <tagged-values />
+          <associated-diagrams />
+          <owned-items />
+          <style class="default" />
+          <lifeline classifier-name="" is-active="false" is-multi-object="false" />
+        </item>
+        <item id="mdip361642269224069808_617020544554416898" cid="LL004" type="lifeline" name="ViewSumReport_Form" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:19:49">
+          <stereotypes>
+            <stereotype name="boundary" />
+          </stereotypes>
+          <tagged-values />
+          <associated-diagrams />
+          <owned-items />
+          <style class="default" />
+          <lifeline classifier-name="" is-active="false" is-multi-object="false" />
+        </item>
+        <item id="mdip361642269224069808_547984151437222597" cid="AN001" type="sequence-action" name="Action1" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:33:37">
+          <stereotypes />
+          <tagged-values />
+          <associated-diagrams />
+          <owned-items />
+          <style class="default" />
+          <sequence-action type="call" message="xem báo cáo phòng ban" is-asynchronous="false" return-value="" assign-to-variable="">
+            <parameters />
+          </sequence-action>
+        </item>
+        <item id="mdip361642269224069808_541893582304910894" cid="AB001" type="activation-bar" name="ActivationBar1" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:33:39">
+          <stereotypes />
+          <tagged-values />
+          <associated-diagrams />
+          <owned-items />
+          <style class="default" />
+        </item>
+        <item id="mdip361642269224069808_292137603463821075" cid="AB002" type="activation-bar" name="ActivationBar2" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:33:39">
+          <stereotypes />
+          <tagged-values />
+          <associated-diagrams />
+          <owned-items />
+          <style class="default" />
+          <activation-bar lifeline-ref="mdip361642269224069808_617020544554416898" />
+        </item>
+        <item id="mdip361642269224069808_853638131844090572" cid="AN002" type="sequence-action" name="Action2" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:37:53">
+          <stereotypes />
+          <tagged-values />
+          <associated-diagrams />
+          <owned-items />
+          <style class="default" />
+          <sequence-action type="call" message="ViewSumReport(data)" is-asynchronous="false" return-value="" assign-to-variable="">
+            <parameters />
+          </sequence-action>
+        </item>
+        <item id="mdip361642269224069808_450834397814648961" cid="AB003" type="activation-bar" name="ActivationBar3" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:37:55">
+          <stereotypes />
+          <tagged-values />
+          <associated-diagrams />
+          <owned-items />
+          <style class="default" />
+          <activation-bar lifeline-ref="mdip361642269224069808_359486369561830177" />
+        </item>
+        <item id="mdip361642269224069808_525837952881060975" cid="AN003" type="sequence-action" name="Action3" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:38:28">
+          <stereotypes />
+          <tagged-values />
+          <associated-diagrams />
+          <owned-items />
+          <style class="default" />
+          <sequence-action type="call" message="find(data)" is-asynchronous="false" return-value="" assign-to-variable="">
+            <parameters />
+          </sequence-action>
+        </item>
+        <item id="mdip361642269224069808_302575259118238136" cid="AB004" type="activation-bar" name="ActivationBar4" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:38:30">
+          <stereotypes />
+          <tagged-values />
+          <associated-diagrams />
+          <owned-items />
+          <style class="default" />
+          <activation-bar lifeline-ref="mdip361642269224069808_545257674919615111" />
+        </item>
+        <item id="mdip361642269224069808_178371314771562065" cid="AN004" type="sequence-action" name="Action4" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:39:01">
+          <stereotypes />
+          <tagged-values />
+          <associated-diagrams />
+          <owned-items />
+          <style class="default" />
+          <sequence-action type="return" message="queryable" is-asynchronous="false" return-value="" assign-to-variable="">
+            <parameters />
+          </sequence-action>
+        </item>
+        <item id="mdip361642269224069808_642950469464546472" cid="AN009" type="sequence-action" name="Action9" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:41:46">
+          <stereotypes />
+          <tagged-values />
+          <associated-diagrams />
+          <owned-items />
+          <style class="default" />
+          <sequence-action type="return" message="Object" is-asynchronous="false" return-value="" assign-to-variable="">
+            <parameters />
+          </sequence-action>
+        </item>
+        <item id="mdip361642269224069808_190577719411633333" cid="AN011" type="sequence-action" name="Action11" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:58:43">
+          <stereotypes />
+          <tagged-values />
+          <associated-diagrams />
+          <owned-items />
+          <style class="default" />
+          <sequence-action type="return" message="Result" is-asynchronous="false" return-value="" assign-to-variable="">
+            <parameters />
+          </sequence-action>
+        </item>
       </abstract-items>
       <sub-models />
-      <diagram type="uml-sequence" id="p757153016570566903" name="UpdateRoom" order-index="1" show-nullability="true">
+      <diagram type="uml-sequence" id="p757153016570566903" name="cap nhat don vi" order-index="1" show-nullability="true">
         <style>
           <background-color index="1" color="#FFFFFFFF" />
           <background-color index="2" color="#FFFFFFFF" />
@@ -329,7 +457,7 @@
             <layout ax="687" ay="50" awidth="140" aheight="291" x="687" y="51" width="140" height="291" angle="0" />
           </item>
           <item id="mdip849239985545140461_686639798101655261" iid="9a2c0343cef1498fba69de9042490468" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="10/01/2012 23:54:45" order-index="2" presentation-style="stereotype" type="lifeline">
-            <layout ax="485" ay="50" awidth="169" aheight="292" x="485" y="51" width="169" height="292" angle="0" />
+            <layout ax="485" ay="50" awidth="169" aheight="292" x="485" y="50" width="169" height="292" angle="0" />
           </item>
           <item id="mdip849239985545140461_113011615726747131" iid="9b76a70c61ac48fbb4bb4a42f170b316" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="10/01/2012 23:54:45" order-index="3" presentation-style="stereotype" type="lifeline">
             <layout ax="290" ay="50" awidth="140" aheight="290" x="290" y="51" width="140" height="290" angle="0" />
