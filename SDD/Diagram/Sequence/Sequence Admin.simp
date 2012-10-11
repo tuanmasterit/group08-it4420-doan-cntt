@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<sim-project version="5.95" multi-file="no">
+<sim-project version="5.5" multi-file="no">
   <meta>
     <name>Project</name>
     <authors> </authors>
@@ -43,16 +43,15 @@
         <revision-count>0</revision-count>
         <version />
       </meta>
-      <tagged-values />
       <abstract-items>
-        <item id="mdip556544424424437649_707184200630663856" cid="AC001" type="actor" name="Admin" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:18:47">
+        <item id="mdip556544424424437649_707184200630663856" cid="AC001" type="actor" name="Admin" style-class="default" is-abstract="false" creation-date="10/01/2012 10:18:47">
           <stereotypes />
           <tagged-values />
           <associated-diagrams />
           <owned-items />
           <style class="default" />
         </item>
-        <item id="mdip556544424424437649_420285191226651422" cid="LL001" type="lifeline" name="Linq" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:18:51">
+        <item id="mdip556544424424437649_420285191226651422" cid="LL001" type="lifeline" name="Linq" style-class="default" is-abstract="false" creation-date="10/01/2012 10:18:51">
           <stereotypes>
             <stereotype name="entity" />
           </stereotypes>
@@ -62,7 +61,7 @@
           <style class="default" />
           <lifeline classifier-name="" is-active="false" is-multi-object="false" />
         </item>
-        <item id="mdip556544424424437649_715569888366825391" cid="LL002" type="lifeline" name="CreateUser_Bussiness" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:19:01">
+        <item id="mdip556544424424437649_715569888366825391" cid="LL002" type="lifeline" name="CreateUser_Bussiness" style-class="default" is-abstract="false" creation-date="10/01/2012 10:19:01">
           <stereotypes>
             <stereotype name="control" />
           </stereotypes>
@@ -72,7 +71,7 @@
           <style class="default" />
           <lifeline classifier-name="" is-active="false" is-multi-object="false" />
         </item>
-        <item id="mdip556544424424437649_612401895787910053" cid="LL004" type="lifeline" name="CreateUser_Form" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:19:49">
+        <item id="mdip556544424424437649_612401895787910053" cid="LL004" type="lifeline" name="CreateUser_Form" style-class="default" is-abstract="false" creation-date="10/01/2012 10:19:49">
           <stereotypes>
             <stereotype name="boundary" />
           </stereotypes>
@@ -82,105 +81,90 @@
           <style class="default" />
           <lifeline classifier-name="" is-active="false" is-multi-object="false" />
         </item>
-        <item id="mdip556544424424437649_720552216838594326" cid="AN001" type="sequence-action" name="Action1" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:33:37">
+        <item id="mdip556544424424437649_720552216838594326" cid="AN001" type="sequence-action" name="Action1" style-class="default" is-abstract="false" creation-date="10/01/2012 10:33:37">
           <stereotypes />
           <tagged-values />
           <associated-diagrams />
           <owned-items />
           <style class="default" />
-          <sequence-action type="call" message="Tạo tài khoản" is-asynchronous="false" return-value="" assign-to-variable="">
-            <parameters />
-          </sequence-action>
+          <sequence-action type="call" message="Tạo tài khoản" is-asynchronous="false" />
         </item>
-        <item id="mdip556544424424437649_895244461813285179" cid="AB001" type="activation-bar" name="ActivationBar1" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:33:39">
-          <stereotypes />
-          <tagged-values />
-          <associated-diagrams />
-          <owned-items />
-          <style class="default" />
-        </item>
-        <item id="mdip556544424424437649_320711408726680983" cid="AB002" type="activation-bar" name="ActivationBar2" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:33:39">
-          <stereotypes />
-          <tagged-values />
-          <associated-diagrams />
-          <owned-items />
-          <style class="default" />
-          <activation-bar lifeline-ref="mdip556544424424437649_612401895787910053" />
-        </item>
-        <item id="mdip556544424424437649_750668402788486604" cid="AN002" type="sequence-action" name="Action2" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:37:53">
-          <stereotypes />
-          <tagged-values />
-          <associated-diagrams />
-          <owned-items />
-          <style class="default" />
-          <sequence-action type="call" message="CreateUser(data)" is-asynchronous="false" return-value="" assign-to-variable="">
-            <parameters />
-          </sequence-action>
-        </item>
-        <item id="mdip556544424424437649_432675011253168280" cid="AB003" type="activation-bar" name="ActivationBar3" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:37:55">
-          <stereotypes />
-          <tagged-values />
-          <associated-diagrams />
-          <owned-items />
-          <style class="default" />
-          <activation-bar lifeline-ref="mdip556544424424437649_715569888366825391" />
-        </item>
-        <item id="mdip556544424424437649_976766523790254650" cid="AN003" type="sequence-action" name="Action3" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:38:28">
-          <stereotypes />
-          <tagged-values />
-          <associated-diagrams />
-          <owned-items />
-          <style class="default" />
-          <sequence-action type="call" message="insert(data)" is-asynchronous="false" return-value="" assign-to-variable="">
-            <parameters />
-          </sequence-action>
-        </item>
-        <item id="mdip556544424424437649_291079764281422069" cid="AB004" type="activation-bar" name="ActivationBar4" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:38:30">
-          <stereotypes />
-          <tagged-values />
-          <associated-diagrams />
-          <owned-items />
-          <style class="default" />
-          <activation-bar lifeline-ref="mdip556544424424437649_420285191226651422" />
-        </item>
-        <item id="mdip556544424424437649_199220952805035364" cid="AN004" type="sequence-action" name="Action4" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:39:01">
-          <stereotypes />
-          <tagged-values />
-          <associated-diagrams />
-          <owned-items />
-          <style class="default" />
-          <sequence-action type="return" message="queryable" is-asynchronous="false" return-value="" assign-to-variable="">
-            <parameters />
-          </sequence-action>
-        </item>
-        <item id="mdip556544424424437649_373934459985726119" cid="AN009" type="sequence-action" name="Action9" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:41:46">
-          <stereotypes />
-          <tagged-values />
-          <associated-diagrams />
-          <owned-items />
-          <style class="default" />
-          <sequence-action type="return" message="Object" is-asynchronous="false" return-value="" assign-to-variable="">
-            <parameters />
-          </sequence-action>
-        </item>
-        <item id="mdip556544424424437649_862311154604624690" cid="AN011" type="sequence-action" name="Action11" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:58:43">
-          <stereotypes />
-          <tagged-values />
-          <associated-diagrams />
-          <owned-items />
-          <style class="default" />
-          <sequence-action type="return" message="Result" is-asynchronous="false" return-value="" assign-to-variable="">
-            <parameters />
-          </sequence-action>
-        </item>
-        <item id="mdip849239985545140461_961971818685988408" cid="AC001" type="actor" name="Admin" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:18:47">
+        <item id="mdip556544424424437649_895244461813285179" cid="AB001" type="activation-bar" name="ActivationBar1" style-class="default" is-abstract="false" creation-date="10/01/2012 10:33:39">
           <stereotypes />
           <tagged-values />
           <associated-diagrams />
           <owned-items />
           <style class="default" />
         </item>
-        <item id="mdip849239985545140461_185068860312720208" cid="LL001" type="lifeline" name="Linq" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:18:51">
+        <item id="mdip556544424424437649_320711408726680983" cid="AB002" type="activation-bar" name="ActivationBar2" style-class="default" is-abstract="false" creation-date="10/01/2012 10:33:39">
+          <stereotypes />
+          <tagged-values />
+          <associated-diagrams />
+          <owned-items />
+          <style class="default" />
+        </item>
+        <item id="mdip556544424424437649_750668402788486604" cid="AN002" type="sequence-action" name="Action2" style-class="default" is-abstract="false" creation-date="10/01/2012 10:37:53">
+          <stereotypes />
+          <tagged-values />
+          <associated-diagrams />
+          <owned-items />
+          <style class="default" />
+          <sequence-action type="call" message="CreateUser(data)" is-asynchronous="false" />
+        </item>
+        <item id="mdip556544424424437649_432675011253168280" cid="AB003" type="activation-bar" name="ActivationBar3" style-class="default" is-abstract="false" creation-date="10/01/2012 10:37:55">
+          <stereotypes />
+          <tagged-values />
+          <associated-diagrams />
+          <owned-items />
+          <style class="default" />
+        </item>
+        <item id="mdip556544424424437649_976766523790254650" cid="AN003" type="sequence-action" name="Action3" style-class="default" is-abstract="false" creation-date="10/01/2012 10:38:28">
+          <stereotypes />
+          <tagged-values />
+          <associated-diagrams />
+          <owned-items />
+          <style class="default" />
+          <sequence-action type="call" message="insert(data)" is-asynchronous="false" />
+        </item>
+        <item id="mdip556544424424437649_291079764281422069" cid="AB004" type="activation-bar" name="ActivationBar4" style-class="default" is-abstract="false" creation-date="10/01/2012 10:38:30">
+          <stereotypes />
+          <tagged-values />
+          <associated-diagrams />
+          <owned-items />
+          <style class="default" />
+        </item>
+        <item id="mdip556544424424437649_199220952805035364" cid="AN004" type="sequence-action" name="Action4" style-class="default" is-abstract="false" creation-date="10/01/2012 10:39:01">
+          <stereotypes />
+          <tagged-values />
+          <associated-diagrams />
+          <owned-items />
+          <style class="default" />
+          <sequence-action type="return" message="queryable" is-asynchronous="false" />
+        </item>
+        <item id="mdip556544424424437649_373934459985726119" cid="AN009" type="sequence-action" name="Action9" style-class="default" is-abstract="false" creation-date="10/01/2012 10:41:46">
+          <stereotypes />
+          <tagged-values />
+          <associated-diagrams />
+          <owned-items />
+          <style class="default" />
+          <sequence-action type="return" message="Object" is-asynchronous="false" />
+        </item>
+        <item id="mdip556544424424437649_862311154604624690" cid="AN011" type="sequence-action" name="Action11" style-class="default" is-abstract="false" creation-date="10/01/2012 10:58:43">
+          <stereotypes />
+          <tagged-values />
+          <associated-diagrams />
+          <owned-items />
+          <style class="default" />
+          <sequence-action type="return" message="Result" is-asynchronous="false" />
+        </item>
+        <item id="mdip849239985545140461_961971818685988408" cid="AC001" type="actor" name="Admin" style-class="default" is-abstract="false" creation-date="10/01/2012 10:18:47">
+          <stereotypes />
+          <tagged-values />
+          <associated-diagrams />
+          <owned-items />
+          <style class="default" />
+        </item>
+        <item id="mdip849239985545140461_185068860312720208" cid="LL001" type="lifeline" name="Linq" style-class="default" is-abstract="false" creation-date="10/01/2012 10:18:51">
           <stereotypes>
             <stereotype name="entity" />
           </stereotypes>
@@ -190,7 +174,7 @@
           <style class="default" />
           <lifeline classifier-name="" is-active="false" is-multi-object="false" />
         </item>
-        <item id="mdip849239985545140461_943187879658483950" cid="LL002" type="lifeline" name="CreateUser_Bussiness" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:19:01">
+        <item id="mdip849239985545140461_943187879658483950" cid="LL002" type="lifeline" name="CreateUser_Bussiness" style-class="default" is-abstract="false" creation-date="10/01/2012 10:19:01">
           <stereotypes>
             <stereotype name="control" />
           </stereotypes>
@@ -200,7 +184,7 @@
           <style class="default" />
           <lifeline classifier-name="" is-active="false" is-multi-object="false" />
         </item>
-        <item id="mdip849239985545140461_401903933805718639" cid="LL004" type="lifeline" name="CreateUser_Form" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:19:49">
+        <item id="mdip849239985545140461_401903933805718639" cid="LL004" type="lifeline" name="CreateUser_Form" style-class="default" is-abstract="false" creation-date="10/01/2012 10:19:49">
           <stereotypes>
             <stereotype name="boundary" />
           </stereotypes>
@@ -210,102 +194,90 @@
           <style class="default" />
           <lifeline classifier-name="" is-active="false" is-multi-object="false" />
         </item>
-        <item id="mdip849239985545140461_897054784694951907" cid="AN001" type="sequence-action" name="Action1" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:33:37">
+        <item id="mdip849239985545140461_897054784694951907" cid="AN001" type="sequence-action" name="Action1" style-class="default" is-abstract="false" creation-date="10/01/2012 10:33:37">
           <stereotypes />
           <tagged-values />
           <associated-diagrams />
           <owned-items />
           <style class="default" />
-          <sequence-action type="call" message="Tạo tài khoản" is-asynchronous="false" return-value="" assign-to-variable="">
-            <parameters />
-          </sequence-action>
+          <sequence-action type="call" message="Tạo tài khoản" is-asynchronous="false" />
         </item>
-        <item id="mdip849239985545140461_257713094775268872" cid="AB001" type="activation-bar" name="ActivationBar1" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:33:39">
-          <stereotypes />
-          <tagged-values />
-          <associated-diagrams />
-          <owned-items />
-          <style class="default" />
-        </item>
-        <item id="mdip849239985545140461_669956150830574047" cid="AB002" type="activation-bar" name="ActivationBar2" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:33:39">
+        <item id="mdip849239985545140461_257713094775268872" cid="AB001" type="activation-bar" name="ActivationBar1" style-class="default" is-abstract="false" creation-date="10/01/2012 10:33:39">
           <stereotypes />
           <tagged-values />
           <associated-diagrams />
           <owned-items />
           <style class="default" />
         </item>
-        <item id="mdip849239985545140461_803765558849559712" cid="AN002" type="sequence-action" name="Action2" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:37:53">
-          <stereotypes />
-          <tagged-values />
-          <associated-diagrams />
-          <owned-items />
-          <style class="default" />
-          <sequence-action type="call" message="CreateUser(data)" is-asynchronous="false" return-value="" assign-to-variable="">
-            <parameters />
-          </sequence-action>
-        </item>
-        <item id="mdip849239985545140461_582973954568253392" cid="AB003" type="activation-bar" name="ActivationBar3" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:37:55">
+        <item id="mdip849239985545140461_669956150830574047" cid="AB002" type="activation-bar" name="ActivationBar2" style-class="default" is-abstract="false" creation-date="10/01/2012 10:33:39">
           <stereotypes />
           <tagged-values />
           <associated-diagrams />
           <owned-items />
           <style class="default" />
         </item>
-        <item id="mdip849239985545140461_519566367454743669" cid="AN003" type="sequence-action" name="Action3" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:38:28">
+        <item id="mdip849239985545140461_803765558849559712" cid="AN002" type="sequence-action" name="Action2" style-class="default" is-abstract="false" creation-date="10/01/2012 10:37:53">
           <stereotypes />
           <tagged-values />
           <associated-diagrams />
           <owned-items />
           <style class="default" />
-          <sequence-action type="call" message="find(data)" is-asynchronous="false" return-value="" assign-to-variable="">
-            <parameters />
-          </sequence-action>
+          <sequence-action type="call" message="CreateUser(data)" is-asynchronous="false" />
         </item>
-        <item id="mdip849239985545140461_570756969633774682" cid="AB004" type="activation-bar" name="ActivationBar4" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:38:30">
-          <stereotypes />
-          <tagged-values />
-          <associated-diagrams />
-          <owned-items />
-          <style class="default" />
-        </item>
-        <item id="mdip849239985545140461_704676453443588411" cid="AN004" type="sequence-action" name="Action4" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:39:01">
-          <stereotypes />
-          <tagged-values />
-          <associated-diagrams />
-          <owned-items />
-          <style class="default" />
-          <sequence-action type="return" message="queryable" is-asynchronous="false" return-value="" assign-to-variable="">
-            <parameters />
-          </sequence-action>
-        </item>
-        <item id="mdip849239985545140461_175323247573218161" cid="AN009" type="sequence-action" name="Action9" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:41:46">
-          <stereotypes />
-          <tagged-values />
-          <associated-diagrams />
-          <owned-items />
-          <style class="default" />
-          <sequence-action type="return" message="boolen Object" is-asynchronous="false" return-value="" assign-to-variable="">
-            <parameters />
-          </sequence-action>
-        </item>
-        <item id="mdip849239985545140461_846230860760584944" cid="AN011" type="sequence-action" name="Action11" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:58:43">
-          <stereotypes />
-          <tagged-values />
-          <associated-diagrams />
-          <owned-items />
-          <style class="default" />
-          <sequence-action type="return" message="Result" is-asynchronous="false" return-value="" assign-to-variable="">
-            <parameters />
-          </sequence-action>
-        </item>
-        <item id="mdip849239985545140461_703539341595401375" cid="AC001" type="actor" name="Admin" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:18:47">
+        <item id="mdip849239985545140461_582973954568253392" cid="AB003" type="activation-bar" name="ActivationBar3" style-class="default" is-abstract="false" creation-date="10/01/2012 10:37:55">
           <stereotypes />
           <tagged-values />
           <associated-diagrams />
           <owned-items />
           <style class="default" />
         </item>
-        <item id="mdip849239985545140461_588130778478937927" cid="LL001" type="lifeline" name="Linq" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:18:51">
+        <item id="mdip849239985545140461_519566367454743669" cid="AN003" type="sequence-action" name="Action3" style-class="default" is-abstract="false" creation-date="10/01/2012 10:38:28">
+          <stereotypes />
+          <tagged-values />
+          <associated-diagrams />
+          <owned-items />
+          <style class="default" />
+          <sequence-action type="call" message="find(data)" is-asynchronous="false" />
+        </item>
+        <item id="mdip849239985545140461_570756969633774682" cid="AB004" type="activation-bar" name="ActivationBar4" style-class="default" is-abstract="false" creation-date="10/01/2012 10:38:30">
+          <stereotypes />
+          <tagged-values />
+          <associated-diagrams />
+          <owned-items />
+          <style class="default" />
+        </item>
+        <item id="mdip849239985545140461_704676453443588411" cid="AN004" type="sequence-action" name="Action4" style-class="default" is-abstract="false" creation-date="10/01/2012 10:39:01">
+          <stereotypes />
+          <tagged-values />
+          <associated-diagrams />
+          <owned-items />
+          <style class="default" />
+          <sequence-action type="return" message="queryable" is-asynchronous="false" />
+        </item>
+        <item id="mdip849239985545140461_175323247573218161" cid="AN009" type="sequence-action" name="Action9" style-class="default" is-abstract="false" creation-date="10/01/2012 10:41:46">
+          <stereotypes />
+          <tagged-values />
+          <associated-diagrams />
+          <owned-items />
+          <style class="default" />
+          <sequence-action type="return" message="boolen Object" is-asynchronous="false" />
+        </item>
+        <item id="mdip849239985545140461_846230860760584944" cid="AN011" type="sequence-action" name="Action11" style-class="default" is-abstract="false" creation-date="10/01/2012 10:58:43">
+          <stereotypes />
+          <tagged-values />
+          <associated-diagrams />
+          <owned-items />
+          <style class="default" />
+          <sequence-action type="return" message="Result" is-asynchronous="false" />
+        </item>
+        <item id="mdip849239985545140461_703539341595401375" cid="AC001" type="actor" name="Admin" style-class="default" is-abstract="false" creation-date="10/01/2012 10:18:47">
+          <stereotypes />
+          <tagged-values />
+          <associated-diagrams />
+          <owned-items />
+          <style class="default" />
+        </item>
+        <item id="mdip849239985545140461_588130778478937927" cid="LL001" type="lifeline" name="Linq" style-class="default" is-abstract="false" creation-date="10/01/2012 10:18:51">
           <stereotypes>
             <stereotype name="entity" />
           </stereotypes>
@@ -315,7 +287,7 @@
           <style class="default" />
           <lifeline classifier-name="" is-active="false" is-multi-object="false" />
         </item>
-        <item id="mdip849239985545140461_686639798101655261" cid="LL002" type="lifeline" name="UpdateUser_Bussiness" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:19:01">
+        <item id="mdip849239985545140461_686639798101655261" cid="LL002" type="lifeline" name="UpdateUser_Bussiness" style-class="default" is-abstract="false" creation-date="10/01/2012 10:19:01">
           <stereotypes>
             <stereotype name="control" />
           </stereotypes>
@@ -325,7 +297,7 @@
           <style class="default" />
           <lifeline classifier-name="" is-active="false" is-multi-object="false" />
         </item>
-        <item id="mdip849239985545140461_113011615726747131" cid="LL004" type="lifeline" name="UpdateUser_Form" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:19:49">
+        <item id="mdip849239985545140461_113011615726747131" cid="LL004" type="lifeline" name="UpdateUser_Form" style-class="default" is-abstract="false" creation-date="10/01/2012 10:19:49">
           <stereotypes>
             <stereotype name="boundary" />
           </stereotypes>
@@ -335,105 +307,90 @@
           <style class="default" />
           <lifeline classifier-name="" is-active="false" is-multi-object="false" />
         </item>
-        <item id="mdip849239985545140461_218111393979669358" cid="AN001" type="sequence-action" name="Action1" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:33:37">
+        <item id="mdip849239985545140461_218111393979669358" cid="AN001" type="sequence-action" name="Action1" style-class="default" is-abstract="false" creation-date="10/01/2012 10:33:37">
           <stereotypes />
           <tagged-values />
           <associated-diagrams />
           <owned-items />
           <style class="default" />
-          <sequence-action type="call" message="Cập nhật tài khoản" is-asynchronous="false" return-value="" assign-to-variable="">
-            <parameters />
-          </sequence-action>
+          <sequence-action type="call" message="Cập nhật tài khoản" is-asynchronous="false" />
         </item>
-        <item id="mdip849239985545140461_189450862152201195" cid="AB001" type="activation-bar" name="ActivationBar1" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:33:39">
-          <stereotypes />
-          <tagged-values />
-          <associated-diagrams />
-          <owned-items />
-          <style class="default" />
-        </item>
-        <item id="mdip849239985545140461_627851068916969637" cid="AB002" type="activation-bar" name="ActivationBar2" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:33:39">
-          <stereotypes />
-          <tagged-values />
-          <associated-diagrams />
-          <owned-items />
-          <style class="default" />
-          <activation-bar lifeline-ref="mdip849239985545140461_113011615726747131" />
-        </item>
-        <item id="mdip849239985545140461_714889377911071103" cid="AN002" type="sequence-action" name="Action2" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:37:53">
-          <stereotypes />
-          <tagged-values />
-          <associated-diagrams />
-          <owned-items />
-          <style class="default" />
-          <sequence-action type="call" message="UpdateUser(data)" is-asynchronous="false" return-value="" assign-to-variable="">
-            <parameters />
-          </sequence-action>
-        </item>
-        <item id="mdip849239985545140461_997276535746127556" cid="AB003" type="activation-bar" name="ActivationBar3" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:37:55">
-          <stereotypes />
-          <tagged-values />
-          <associated-diagrams />
-          <owned-items />
-          <style class="default" />
-          <activation-bar lifeline-ref="mdip849239985545140461_686639798101655261" />
-        </item>
-        <item id="mdip849239985545140461_534916840534967182" cid="AN003" type="sequence-action" name="Action3" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:38:28">
-          <stereotypes />
-          <tagged-values />
-          <associated-diagrams />
-          <owned-items />
-          <style class="default" />
-          <sequence-action type="call" message="update(data)" is-asynchronous="false" return-value="" assign-to-variable="">
-            <parameters />
-          </sequence-action>
-        </item>
-        <item id="mdip849239985545140461_908787212752402246" cid="AB004" type="activation-bar" name="ActivationBar4" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:38:30">
-          <stereotypes />
-          <tagged-values />
-          <associated-diagrams />
-          <owned-items />
-          <style class="default" />
-          <activation-bar lifeline-ref="mdip849239985545140461_588130778478937927" />
-        </item>
-        <item id="mdip849239985545140461_891504166627221203" cid="AN004" type="sequence-action" name="Action4" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:39:01">
-          <stereotypes />
-          <tagged-values />
-          <associated-diagrams />
-          <owned-items />
-          <style class="default" />
-          <sequence-action type="return" message="queryable" is-asynchronous="false" return-value="" assign-to-variable="">
-            <parameters />
-          </sequence-action>
-        </item>
-        <item id="mdip849239985545140461_175372114188348217" cid="AN009" type="sequence-action" name="Action9" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:41:46">
-          <stereotypes />
-          <tagged-values />
-          <associated-diagrams />
-          <owned-items />
-          <style class="default" />
-          <sequence-action type="return" message="Object" is-asynchronous="false" return-value="" assign-to-variable="">
-            <parameters />
-          </sequence-action>
-        </item>
-        <item id="mdip849239985545140461_643751469602129627" cid="AN011" type="sequence-action" name="Action11" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:58:43">
-          <stereotypes />
-          <tagged-values />
-          <associated-diagrams />
-          <owned-items />
-          <style class="default" />
-          <sequence-action type="return" message="Result" is-asynchronous="false" return-value="" assign-to-variable="">
-            <parameters />
-          </sequence-action>
-        </item>
-        <item id="mdip522760233669510723_462821554151445792" cid="AC001" type="actor" name="Admin" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:18:47">
+        <item id="mdip849239985545140461_189450862152201195" cid="AB001" type="activation-bar" name="ActivationBar1" style-class="default" is-abstract="false" creation-date="10/01/2012 10:33:39">
           <stereotypes />
           <tagged-values />
           <associated-diagrams />
           <owned-items />
           <style class="default" />
         </item>
-        <item id="mdip522760233669510723_339199878601947080" cid="LL001" type="lifeline" name="Linq" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:18:51">
+        <item id="mdip849239985545140461_627851068916969637" cid="AB002" type="activation-bar" name="ActivationBar2" style-class="default" is-abstract="false" creation-date="10/01/2012 10:33:39">
+          <stereotypes />
+          <tagged-values />
+          <associated-diagrams />
+          <owned-items />
+          <style class="default" />
+        </item>
+        <item id="mdip849239985545140461_714889377911071103" cid="AN002" type="sequence-action" name="Action2" style-class="default" is-abstract="false" creation-date="10/01/2012 10:37:53">
+          <stereotypes />
+          <tagged-values />
+          <associated-diagrams />
+          <owned-items />
+          <style class="default" />
+          <sequence-action type="call" message="UpdateUser(data)" is-asynchronous="false" />
+        </item>
+        <item id="mdip849239985545140461_997276535746127556" cid="AB003" type="activation-bar" name="ActivationBar3" style-class="default" is-abstract="false" creation-date="10/01/2012 10:37:55">
+          <stereotypes />
+          <tagged-values />
+          <associated-diagrams />
+          <owned-items />
+          <style class="default" />
+        </item>
+        <item id="mdip849239985545140461_534916840534967182" cid="AN003" type="sequence-action" name="Action3" style-class="default" is-abstract="false" creation-date="10/01/2012 10:38:28">
+          <stereotypes />
+          <tagged-values />
+          <associated-diagrams />
+          <owned-items />
+          <style class="default" />
+          <sequence-action type="call" message="update(data)" is-asynchronous="false" />
+        </item>
+        <item id="mdip849239985545140461_908787212752402246" cid="AB004" type="activation-bar" name="ActivationBar4" style-class="default" is-abstract="false" creation-date="10/01/2012 10:38:30">
+          <stereotypes />
+          <tagged-values />
+          <associated-diagrams />
+          <owned-items />
+          <style class="default" />
+        </item>
+        <item id="mdip849239985545140461_891504166627221203" cid="AN004" type="sequence-action" name="Action4" style-class="default" is-abstract="false" creation-date="10/01/2012 10:39:01">
+          <stereotypes />
+          <tagged-values />
+          <associated-diagrams />
+          <owned-items />
+          <style class="default" />
+          <sequence-action type="return" message="queryable" is-asynchronous="false" />
+        </item>
+        <item id="mdip849239985545140461_175372114188348217" cid="AN009" type="sequence-action" name="Action9" style-class="default" is-abstract="false" creation-date="10/01/2012 10:41:46">
+          <stereotypes />
+          <tagged-values />
+          <associated-diagrams />
+          <owned-items />
+          <style class="default" />
+          <sequence-action type="return" message="Object" is-asynchronous="false" />
+        </item>
+        <item id="mdip849239985545140461_643751469602129627" cid="AN011" type="sequence-action" name="Action11" style-class="default" is-abstract="false" creation-date="10/01/2012 10:58:43">
+          <stereotypes />
+          <tagged-values />
+          <associated-diagrams />
+          <owned-items />
+          <style class="default" />
+          <sequence-action type="return" message="Result" is-asynchronous="false" />
+        </item>
+        <item id="mdip522760233669510723_462821554151445792" cid="AC001" type="actor" name="Admin" style-class="default" is-abstract="false" creation-date="10/01/2012 10:18:47">
+          <stereotypes />
+          <tagged-values />
+          <associated-diagrams />
+          <owned-items />
+          <style class="default" />
+        </item>
+        <item id="mdip522760233669510723_339199878601947080" cid="LL001" type="lifeline" name="Linq" style-class="default" is-abstract="false" creation-date="10/01/2012 10:18:51">
           <stereotypes>
             <stereotype name="entity" />
           </stereotypes>
@@ -443,7 +400,7 @@
           <style class="default" />
           <lifeline classifier-name="" is-active="false" is-multi-object="false" />
         </item>
-        <item id="mdip522760233669510723_626390492815314164" cid="LL002" type="lifeline" name="CreateDept_Bussiness" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:19:01">
+        <item id="mdip522760233669510723_626390492815314164" cid="LL002" type="lifeline" name="CreateDept_Bussiness" style-class="default" is-abstract="false" creation-date="10/01/2012 10:19:01">
           <stereotypes>
             <stereotype name="control" />
           </stereotypes>
@@ -453,7 +410,7 @@
           <style class="default" />
           <lifeline classifier-name="" is-active="false" is-multi-object="false" />
         </item>
-        <item id="mdip522760233669510723_940912652712522691" cid="LL004" type="lifeline" name="CreateDept_Form" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:19:49">
+        <item id="mdip522760233669510723_940912652712522691" cid="LL004" type="lifeline" name="CreateDept_Form" style-class="default" is-abstract="false" creation-date="10/01/2012 10:19:49">
           <stereotypes>
             <stereotype name="boundary" />
           </stereotypes>
@@ -463,100 +420,85 @@
           <style class="default" />
           <lifeline classifier-name="" is-active="false" is-multi-object="false" />
         </item>
-        <item id="mdip522760233669510723_283429912655825919" cid="AN001" type="sequence-action" name="Action1" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:33:37">
+        <item id="mdip522760233669510723_283429912655825919" cid="AN001" type="sequence-action" name="Action1" style-class="default" is-abstract="false" creation-date="10/01/2012 10:33:37">
           <stereotypes />
           <tagged-values />
           <associated-diagrams />
           <owned-items />
           <style class="default" />
-          <sequence-action type="call" message="tạo đơn vị phòng ban" is-asynchronous="false" return-value="" assign-to-variable="">
-            <parameters />
-          </sequence-action>
+          <sequence-action type="call" message="tạo đơn vị phòng ban" is-asynchronous="false" />
         </item>
-        <item id="mdip522760233669510723_431463533207125195" cid="AB001" type="activation-bar" name="ActivationBar1" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:33:39">
+        <item id="mdip522760233669510723_431463533207125195" cid="AB001" type="activation-bar" name="ActivationBar1" style-class="default" is-abstract="false" creation-date="10/01/2012 10:33:39">
           <stereotypes />
           <tagged-values />
           <associated-diagrams />
           <owned-items />
           <style class="default" />
         </item>
-        <item id="mdip522760233669510723_501832753866650870" cid="AB002" type="activation-bar" name="ActivationBar2" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:33:39">
+        <item id="mdip522760233669510723_501832753866650870" cid="AB002" type="activation-bar" name="ActivationBar2" style-class="default" is-abstract="false" creation-date="10/01/2012 10:33:39">
           <stereotypes />
           <tagged-values />
           <associated-diagrams />
           <owned-items />
           <style class="default" />
-          <activation-bar lifeline-ref="mdip522760233669510723_940912652712522691" />
         </item>
-        <item id="mdip522760233669510723_737770606231147150" cid="AN002" type="sequence-action" name="Action2" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:37:53">
+        <item id="mdip522760233669510723_737770606231147150" cid="AN002" type="sequence-action" name="Action2" style-class="default" is-abstract="false" creation-date="10/01/2012 10:37:53">
           <stereotypes />
           <tagged-values />
           <associated-diagrams />
           <owned-items />
           <style class="default" />
-          <sequence-action type="call" message="CreateDept(data)" is-asynchronous="false" return-value="" assign-to-variable="">
-            <parameters />
-          </sequence-action>
+          <sequence-action type="call" message="CreateDept(data)" is-asynchronous="false" />
         </item>
-        <item id="mdip522760233669510723_400259675602693981" cid="AB003" type="activation-bar" name="ActivationBar3" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:37:55">
+        <item id="mdip522760233669510723_400259675602693981" cid="AB003" type="activation-bar" name="ActivationBar3" style-class="default" is-abstract="false" creation-date="10/01/2012 10:37:55">
           <stereotypes />
           <tagged-values />
           <associated-diagrams />
           <owned-items />
           <style class="default" />
-          <activation-bar lifeline-ref="mdip522760233669510723_626390492815314164" />
         </item>
-        <item id="mdip522760233669510723_530550481221177664" cid="AN003" type="sequence-action" name="Action3" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:38:28">
+        <item id="mdip522760233669510723_530550481221177664" cid="AN003" type="sequence-action" name="Action3" style-class="default" is-abstract="false" creation-date="10/01/2012 10:38:28">
           <stereotypes />
           <tagged-values />
           <associated-diagrams />
           <owned-items />
           <style class="default" />
-          <sequence-action type="call" message="insert(data)" is-asynchronous="false" return-value="" assign-to-variable="">
-            <parameters />
-          </sequence-action>
+          <sequence-action type="call" message="insert(data)" is-asynchronous="false" />
         </item>
-        <item id="mdip522760233669510723_649419765370594388" cid="AB004" type="activation-bar" name="ActivationBar4" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:38:30">
+        <item id="mdip522760233669510723_649419765370594388" cid="AB004" type="activation-bar" name="ActivationBar4" style-class="default" is-abstract="false" creation-date="10/01/2012 10:38:30">
           <stereotypes />
           <tagged-values />
           <associated-diagrams />
           <owned-items />
           <style class="default" />
-          <activation-bar lifeline-ref="mdip522760233669510723_339199878601947080" />
         </item>
-        <item id="mdip522760233669510723_502985597372492474" cid="AN004" type="sequence-action" name="Action4" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:39:01">
+        <item id="mdip522760233669510723_502985597372492474" cid="AN004" type="sequence-action" name="Action4" style-class="default" is-abstract="false" creation-date="10/01/2012 10:39:01">
           <stereotypes />
           <tagged-values />
           <associated-diagrams />
           <owned-items />
           <style class="default" />
-          <sequence-action type="return" message="queryable" is-asynchronous="false" return-value="" assign-to-variable="">
-            <parameters />
-          </sequence-action>
+          <sequence-action type="return" message="queryable" is-asynchronous="false" />
         </item>
-        <item id="mdip522760233669510723_359719746616106606" cid="AN009" type="sequence-action" name="Action9" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:41:46">
+        <item id="mdip522760233669510723_359719746616106606" cid="AN009" type="sequence-action" name="Action9" style-class="default" is-abstract="false" creation-date="10/01/2012 10:41:46">
           <stereotypes />
           <tagged-values />
           <associated-diagrams />
           <owned-items />
           <style class="default" />
-          <sequence-action type="return" message="Object" is-asynchronous="false" return-value="" assign-to-variable="">
-            <parameters />
-          </sequence-action>
+          <sequence-action type="return" message="Object" is-asynchronous="false" />
         </item>
-        <item id="mdip522760233669510723_632799311619627386" cid="AN011" type="sequence-action" name="Action11" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="10/01/2012 10:58:43">
+        <item id="mdip522760233669510723_632799311619627386" cid="AN011" type="sequence-action" name="Action11" style-class="default" is-abstract="false" creation-date="10/01/2012 10:58:43">
           <stereotypes />
           <tagged-values />
           <associated-diagrams />
           <owned-items />
           <style class="default" />
-          <sequence-action type="return" message="Result" is-asynchronous="false" return-value="" assign-to-variable="">
-            <parameters />
-          </sequence-action>
+          <sequence-action type="return" message="Result" is-asynchronous="false" />
         </item>
       </abstract-items>
       <sub-models />
-      <diagram type="uml-sequence" id="p713271785637629012" name="Tao tai khoan" order-index="1" show-nullability="true">
+      <diagram type="uml-sequence" id="p713271785637629012" name="Tao tai khoan" order-index="1">
         <style>
           <background-color index="1" color="#FFFFFFFF" />
           <background-color index="2" color="#FFFFFFFF" />
@@ -572,16 +514,15 @@
           <revision-count>0</revision-count>
           <version />
         </meta>
-        <tagged-values />
         <abstract-items>
-          <item id="ddip325587754157628320_817678159277133161" cid="AC001" type="actor" name="Admin" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="09/28/2012 00:57:40">
+          <item id="ddip325587754157628320_817678159277133161" cid="AC001" type="actor" name="Admin" style-class="default" is-abstract="false" creation-date="09/28/2012 00:57:40">
             <stereotypes />
             <tagged-values />
             <associated-diagrams />
             <owned-items />
             <style class="default" />
           </item>
-          <item id="ddip325587754157628320_801376746563159195" cid="LL001" type="lifeline" name="CreateUser_Control" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="09/28/2012 00:58:21">
+          <item id="ddip325587754157628320_801376746563159195" cid="LL001" type="lifeline" name="CreateUser_Control" style-class="default" is-abstract="false" creation-date="09/28/2012 00:58:21">
             <stereotypes>
               <stereotype name="control" />
             </stereotypes>
@@ -591,7 +532,7 @@
             <style class="default" />
             <lifeline classifier-name="" is-active="false" is-multi-object="false" />
           </item>
-          <item id="ddip325587754157628320_239935158561202419" cid="LL002" type="lifeline" name="CreateUser_Business" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="09/28/2012 00:58:33">
+          <item id="ddip325587754157628320_239935158561202419" cid="LL002" type="lifeline" name="CreateUser_Business" style-class="default" is-abstract="false" creation-date="09/28/2012 00:58:33">
             <stereotypes>
               <stereotype name="entity" />
             </stereotypes>
@@ -601,7 +542,7 @@
             <style class="default" />
             <lifeline classifier-name="" is-active="false" is-multi-object="false" />
           </item>
-          <item id="ddip325587754157628320_195578014741767788" cid="LL003" type="lifeline" name="CreateUser_ADO" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="09/28/2012 00:59:20">
+          <item id="ddip325587754157628320_195578014741767788" cid="LL003" type="lifeline" name="CreateUser_ADO" style-class="default" is-abstract="false" creation-date="09/28/2012 00:59:20">
             <stereotypes>
               <stereotype name="boundary" />
             </stereotypes>
@@ -611,147 +552,135 @@
             <style class="default" />
             <lifeline classifier-name="" is-active="false" is-multi-object="false" />
           </item>
-          <item id="ddip325587754157628320_567687673421565283" cid="AB001" type="activation-bar" name="ActivationBar1" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="09/28/2012 01:00:59">
+          <item id="ddip325587754157628320_567687673421565283" cid="AB001" type="activation-bar" name="ActivationBar1" style-class="default" is-abstract="false" creation-date="09/28/2012 01:00:59">
             <stereotypes />
             <tagged-values />
             <associated-diagrams />
             <owned-items />
             <style class="default" />
           </item>
-          <item id="ddip325587754157628320_355473081496052768" cid="AB002" type="activation-bar" name="ActivationBar2" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="09/28/2012 01:01:13">
+          <item id="ddip325587754157628320_355473081496052768" cid="AB002" type="activation-bar" name="ActivationBar2" style-class="default" is-abstract="false" creation-date="09/28/2012 01:01:13">
             <stereotypes />
             <tagged-values />
             <associated-diagrams />
             <owned-items />
             <style class="default" />
           </item>
-          <item id="ddip325587754157628320_861113931567619649" cid="AN004" type="sequence-action" name="Action4" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="09/28/2012 01:01:44">
+          <item id="ddip325587754157628320_861113931567619649" cid="AN004" type="sequence-action" name="Action4" style-class="default" is-abstract="false" creation-date="09/28/2012 01:01:44">
             <stereotypes />
             <tagged-values />
             <associated-diagrams />
             <owned-items />
             <style class="default" />
-            <sequence-action type="call" message="CreateUser(Form)" is-asynchronous="false" return-value="" assign-to-variable="">
-              <parameters />
-            </sequence-action>
+            <sequence-action type="call" message="CreateUser(Form)" is-asynchronous="false" />
           </item>
-          <item id="ddip325587754157628320_489173159490516970" cid="AN005" type="sequence-action" name="Action5" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="09/28/2012 01:04:10">
+          <item id="ddip325587754157628320_489173159490516970" cid="AN005" type="sequence-action" name="Action5" style-class="default" is-abstract="false" creation-date="09/28/2012 01:04:10">
             <stereotypes />
             <tagged-values />
             <associated-diagrams />
             <owned-items />
             <style class="default" />
-            <sequence-action type="call" message="CreateUser(Form)" is-asynchronous="false" return-value="" assign-to-variable="">
-              <parameters />
-            </sequence-action>
+            <sequence-action type="call" message="CreateUser(Form)" is-asynchronous="false" />
           </item>
-          <item id="ddip325587754157628320_605847420237106245" cid="AB003" type="activation-bar" name="ActivationBar1" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="09/28/2012 01:04:11">
+          <item id="ddip325587754157628320_605847420237106245" cid="AB003" type="activation-bar" name="ActivationBar1" style-class="default" is-abstract="false" creation-date="09/28/2012 01:04:11">
             <stereotypes />
             <tagged-values />
             <associated-diagrams />
             <owned-items />
             <style class="default" />
           </item>
-          <item id="ddip325587754157628320_648538012862922435" cid="AN006" type="sequence-action" name="Action6" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="09/28/2012 01:04:51">
+          <item id="ddip325587754157628320_648538012862922435" cid="AN006" type="sequence-action" name="Action6" style-class="default" is-abstract="false" creation-date="09/28/2012 01:04:51">
             <stereotypes />
             <tagged-values />
             <associated-diagrams />
             <owned-items />
             <style class="default" />
-            <sequence-action type="call" message="CreateUser(Form)" is-asynchronous="false" return-value="" assign-to-variable="">
-              <parameters />
-            </sequence-action>
+            <sequence-action type="call" message="CreateUser(Form)" is-asynchronous="false" />
           </item>
-          <item id="ddip325587754157628320_129144792894949646" cid="AB004" type="activation-bar" name="ActivationBar2" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="09/28/2012 01:04:53">
+          <item id="ddip325587754157628320_129144792894949646" cid="AB004" type="activation-bar" name="ActivationBar2" style-class="default" is-abstract="false" creation-date="09/28/2012 01:04:53">
             <stereotypes />
             <tagged-values />
             <associated-diagrams />
             <owned-items />
             <style class="default" />
           </item>
-          <item id="ddip325587754157628320_529554975430882518" cid="AN007" type="sequence-action" name="Action7" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="09/28/2012 01:05:27">
+          <item id="ddip325587754157628320_529554975430882518" cid="AN007" type="sequence-action" name="Action7" style-class="default" is-abstract="false" creation-date="09/28/2012 01:05:27">
             <stereotypes />
             <tagged-values />
             <associated-diagrams />
             <owned-items />
             <style class="default" />
-            <sequence-action type="return" message="DataSet" is-asynchronous="false" return-value="" assign-to-variable="">
-              <parameters />
-            </sequence-action>
+            <sequence-action type="return" message="DataSet" is-asynchronous="false" />
           </item>
-          <item id="ddip325587754157628320_148557039251786679" cid="AN008" type="sequence-action" name="Action8" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="09/28/2012 01:11:29">
+          <item id="ddip325587754157628320_148557039251786679" cid="AN008" type="sequence-action" name="Action8" style-class="default" is-abstract="false" creation-date="09/28/2012 01:11:29">
             <stereotypes />
             <tagged-values />
             <associated-diagrams />
             <owned-items />
             <style class="default" />
-            <sequence-action type="return" message="Display(Object)" is-asynchronous="false" return-value="" assign-to-variable="">
-              <parameters />
-            </sequence-action>
+            <sequence-action type="return" message="Display(Object)" is-asynchronous="false" />
           </item>
-          <item id="ddip325587754157628320_566797877436032635" cid="AN009" type="sequence-action" name="Action9" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="09/28/2012 01:12:01">
+          <item id="ddip325587754157628320_566797877436032635" cid="AN009" type="sequence-action" name="Action9" style-class="default" is-abstract="false" creation-date="09/28/2012 01:12:01">
             <stereotypes />
             <tagged-values />
             <associated-diagrams />
             <owned-items />
             <style class="default" />
-            <sequence-action type="return" message="Form" is-asynchronous="false" return-value="" assign-to-variable="">
-              <parameters />
-            </sequence-action>
+            <sequence-action type="return" message="Form" is-asynchronous="false" />
           </item>
         </abstract-items>
         <layer name="Default" visible="true" enabled="true" locked="false">
-          <item id="mdip556544424424437649_707184200630663856" iid="44dfd6226a164f0cb5de85dae5a5c1f0" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="10/01/2012 23:54:46" order-index="0" type="lifeline">
-            <layout ax="84" ay="50" awidth="140" aheight="290" x="84" y="49" width="140" height="290" angle="0" />
+          <item id="mdip556544424424437649_707184200630663856" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" order-index="0" type="lifeline">
+            <layout ax="84" ay="50" awidth="140" aheight="290" x="84" y="49" width="140" height="290" />
           </item>
-          <item id="mdip556544424424437649_420285191226651422" iid="f909f4c98246499296983f28eacd557c" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="10/01/2012 23:54:46" order-index="1" presentation-style="stereotype" type="lifeline">
-            <layout ax="687" ay="50" awidth="140" aheight="291" x="687" y="50" width="140" height="291" angle="0" />
+          <item id="mdip556544424424437649_420285191226651422" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" order-index="1" presentation-style="stereotype" type="lifeline">
+            <layout ax="687" ay="50" awidth="140" aheight="291" x="687" y="50" width="140" height="291" />
           </item>
-          <item id="mdip556544424424437649_715569888366825391" iid="17f10e29ee05438582aceb2adc1f7836" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="10/01/2012 23:54:46" order-index="2" presentation-style="stereotype" type="lifeline">
-            <layout ax="485" ay="50" awidth="156" aheight="292" x="485" y="50" width="156" height="292" angle="0" />
+          <item id="mdip556544424424437649_715569888366825391" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" order-index="2" presentation-style="stereotype" type="lifeline">
+            <layout ax="485" ay="50" awidth="156" aheight="292" x="485" y="50" width="156" height="292" />
           </item>
-          <item id="mdip556544424424437649_612401895787910053" iid="2b777e10b90945039a48960387c3a66e" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="10/01/2012 23:54:46" order-index="3" presentation-style="stereotype" type="lifeline">
-            <layout ax="290" ay="50" awidth="140" aheight="290" x="290" y="68" width="140" height="290" angle="0" />
+          <item id="mdip556544424424437649_612401895787910053" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" order-index="3" presentation-style="stereotype" type="lifeline">
+            <layout ax="290" ay="50" awidth="140" aheight="290" x="290" y="50" width="140" height="290" />
           </item>
-          <item id="mdip556544424424437649_720552216838594326" iid="35c6b90e3d5f41889eb5fb0286c6ba42" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="10/01/2012 23:54:46" order-index="4" type="sequence-action">
+          <item id="mdip556544424424437649_720552216838594326" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" order-index="4" type="sequence-action">
             <layout x1="164" y1="165" x2="350" y2="165" ax="164" ay="150" awidth="186" aheight="20" x="164" y="150" width="186" height="20" message-x="0" message-y="-10" />
             <sequence-action from="mdip556544424424437649_895244461813285179" to="mdip556544424424437649_320711408726680983" />
           </item>
-          <item id="mdip556544424424437649_895244461813285179" iid="da84feebc3dc461dbc76005a421e998b" container="mdip556544424424437649_707184200630663856" container-iid="44dfd6226a164f0cb5de85dae5a5c1f0" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="10/01/2012 23:54:46" order-index="5" type="entity">
-            <layout ax="144" ay="165" awidth="20" aheight="144" x="144" y="165" width="21" height="144" angle="0" />
+          <item id="mdip556544424424437649_895244461813285179" container="mdip556544424424437649_707184200630663856" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" order-index="5" type="entity">
+            <layout ax="144" ay="165" awidth="20" aheight="144" x="144" y="165" width="21" height="144" />
           </item>
-          <item id="mdip556544424424437649_320711408726680983" iid="46d022bf0dec4e3f95191317206ce450" container="mdip556544424424437649_612401895787910053" container-iid="2b777e10b90945039a48960387c3a66e" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="10/01/2012 23:54:46" order-index="6" type="entity">
-            <layout ax="350" ay="165" awidth="20" aheight="119" x="350" y="165" width="22" height="119" angle="0" />
+          <item id="mdip556544424424437649_320711408726680983" container="mdip556544424424437649_612401895787910053" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" order-index="6" type="entity">
+            <layout ax="350" ay="165" awidth="20" aheight="119" x="350" y="165" width="22" height="119" />
           </item>
-          <item id="mdip556544424424437649_750668402788486604" iid="aab1f17130d64820bb5d9dc24d4a4dab" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="10/01/2012 23:54:46" order-index="7" type="sequence-action">
+          <item id="mdip556544424424437649_750668402788486604" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" order-index="7" type="sequence-action">
             <layout x1="370" y1="179" x2="553" y2="179" ax="370" ay="164" awidth="183" aheight="20" x="370" y="164" width="183" height="20" message-x="0" message-y="-10" />
             <sequence-action from="mdip556544424424437649_320711408726680983" to="mdip556544424424437649_432675011253168280" />
           </item>
-          <item id="mdip556544424424437649_432675011253168280" iid="23f85c1f0e2f4b33876e8c615ffaa2be" container="mdip556544424424437649_715569888366825391" container-iid="17f10e29ee05438582aceb2adc1f7836" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="10/01/2012 23:54:46" order-index="8" type="entity">
-            <layout ax="553" ay="179" awidth="20" aheight="80" x="553" y="179" width="20" height="40" angle="0" />
+          <item id="mdip556544424424437649_432675011253168280" container="mdip556544424424437649_715569888366825391" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" order-index="8" type="entity">
+            <layout ax="553" ay="179" awidth="20" aheight="80" x="553" y="179" width="20" height="40" />
           </item>
-          <item id="mdip556544424424437649_976766523790254650" iid="f638e8b340254720a1f681474a6330a7" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="10/01/2012 23:54:46" order-index="9" type="sequence-action">
+          <item id="mdip556544424424437649_976766523790254650" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" order-index="9" type="sequence-action">
             <layout x1="573" y1="187" x2="747" y2="187" ax="573" ay="172" awidth="174" aheight="20" x="573" y="172" width="174" height="20" message-x="0" message-y="-10" />
             <sequence-action from="mdip556544424424437649_432675011253168280" to="mdip556544424424437649_291079764281422069" />
           </item>
-          <item id="mdip556544424424437649_291079764281422069" iid="ffa7a4676c8a4972b3644fa774419887" container="mdip556544424424437649_420285191226651422" container-iid="f909f4c98246499296983f28eacd557c" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="10/01/2012 23:54:46" order-index="10" type="entity">
-            <layout ax="747" ay="185" awidth="20" aheight="48" x="747" y="185" width="20" height="40" angle="0" />
+          <item id="mdip556544424424437649_291079764281422069" container="mdip556544424424437649_420285191226651422" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" order-index="10" type="entity">
+            <layout ax="747" ay="185" awidth="20" aheight="48" x="747" y="185" width="20" height="40" />
           </item>
-          <item id="mdip556544424424437649_199220952805035364" iid="a6c1161315a340e581fa06371b96ecb2" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="10/01/2012 23:54:46" order-index="11" type="sequence-action">
+          <item id="mdip556544424424437649_199220952805035364" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" order-index="11" type="sequence-action">
             <layout x1="747" y1="233" x2="573" y2="233" ax="573" ay="218" awidth="174" aheight="20" x="573" y="218" width="174" height="20" message-x="0" message-y="-10" />
             <sequence-action from="mdip556544424424437649_291079764281422069" to="mdip556544424424437649_432675011253168280" />
           </item>
-          <item id="mdip556544424424437649_373934459985726119" iid="45347abc37164b67ae65277afaa3eaeb" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="10/01/2012 23:54:46" order-index="12" type="sequence-action">
+          <item id="mdip556544424424437649_373934459985726119" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" order-index="12" type="sequence-action">
             <layout x1="553" y1="259" x2="370" y2="259" ax="370" ay="244" awidth="183" aheight="20" x="370" y="244" width="183" height="20" message-x="0" message-y="-10" />
             <sequence-action from="mdip556544424424437649_432675011253168280" to="mdip556544424424437649_320711408726680983" />
           </item>
-          <item id="mdip556544424424437649_862311154604624690" iid="ba2cd516eadc41c5a6a9c810e06f37f4" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="10/01/2012 23:54:46" order-index="13" type="sequence-action">
+          <item id="mdip556544424424437649_862311154604624690" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" order-index="13" type="sequence-action">
             <layout x1="350" y1="283" x2="164" y2="283" ax="164" ay="268" awidth="186" aheight="20" x="164" y="268" width="186" height="20" message-x="0" message-y="-10" />
             <sequence-action from="mdip556544424424437649_320711408726680983" to="mdip556544424424437649_895244461813285179" />
           </item>
         </layer>
       </diagram>
-      <diagram type="uml-sequence" id="p944851386301356771" name="update tai khoan" order-index="2" show-nullability="true">
+      <diagram type="uml-sequence" id="p944851386301356771" name="update tai khoan" order-index="2">
         <style>
           <background-color index="1" color="#FFFFFFFF" />
           <background-color index="2" color="#FFFFFFFF" />
@@ -767,16 +696,15 @@
           <revision-count>0</revision-count>
           <version />
         </meta>
-        <tagged-values />
         <abstract-items>
-          <item id="ddip325587754157628320_817678159277133161" cid="AC001" type="actor" name="Admin" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="09/28/2012 00:57:40">
+          <item id="ddip325587754157628320_817678159277133161" cid="AC001" type="actor" name="Admin" style-class="default" is-abstract="false" creation-date="09/28/2012 00:57:40">
             <stereotypes />
             <tagged-values />
             <associated-diagrams />
             <owned-items />
             <style class="default" />
           </item>
-          <item id="ddip325587754157628320_801376746563159195" cid="LL001" type="lifeline" name="UpdateUser_Control" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="09/28/2012 00:58:21">
+          <item id="ddip325587754157628320_801376746563159195" cid="LL001" type="lifeline" name="UpdateUser_Control" style-class="default" is-abstract="false" creation-date="09/28/2012 00:58:21">
             <stereotypes>
               <stereotype name="control" />
             </stereotypes>
@@ -786,7 +714,7 @@
             <style class="default" />
             <lifeline classifier-name="" is-active="false" is-multi-object="false" />
           </item>
-          <item id="ddip325587754157628320_239935158561202419" cid="LL002" type="lifeline" name="UpdateUser_Business" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="09/28/2012 00:58:33">
+          <item id="ddip325587754157628320_239935158561202419" cid="LL002" type="lifeline" name="UpdateUser_Business" style-class="default" is-abstract="false" creation-date="09/28/2012 00:58:33">
             <stereotypes>
               <stereotype name="entity" />
             </stereotypes>
@@ -796,7 +724,7 @@
             <style class="default" />
             <lifeline classifier-name="" is-active="false" is-multi-object="false" />
           </item>
-          <item id="ddip325587754157628320_195578014741767788" cid="LL003" type="lifeline" name="UpdateUser_ADO" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="09/28/2012 00:59:20">
+          <item id="ddip325587754157628320_195578014741767788" cid="LL003" type="lifeline" name="UpdateUser_ADO" style-class="default" is-abstract="false" creation-date="09/28/2012 00:59:20">
             <stereotypes>
               <stereotype name="boundary" />
             </stereotypes>
@@ -806,147 +734,135 @@
             <style class="default" />
             <lifeline classifier-name="" is-active="false" is-multi-object="false" />
           </item>
-          <item id="ddip325587754157628320_567687673421565283" cid="AB001" type="activation-bar" name="ActivationBar1" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="09/28/2012 01:00:59">
+          <item id="ddip325587754157628320_567687673421565283" cid="AB001" type="activation-bar" name="ActivationBar1" style-class="default" is-abstract="false" creation-date="09/28/2012 01:00:59">
             <stereotypes />
             <tagged-values />
             <associated-diagrams />
             <owned-items />
             <style class="default" />
           </item>
-          <item id="ddip325587754157628320_355473081496052768" cid="AB002" type="activation-bar" name="ActivationBar2" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="09/28/2012 01:01:13">
+          <item id="ddip325587754157628320_355473081496052768" cid="AB002" type="activation-bar" name="ActivationBar2" style-class="default" is-abstract="false" creation-date="09/28/2012 01:01:13">
             <stereotypes />
             <tagged-values />
             <associated-diagrams />
             <owned-items />
             <style class="default" />
           </item>
-          <item id="ddip325587754157628320_861113931567619649" cid="AN004" type="sequence-action" name="Action4" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="09/28/2012 01:01:44">
+          <item id="ddip325587754157628320_861113931567619649" cid="AN004" type="sequence-action" name="Action4" style-class="default" is-abstract="false" creation-date="09/28/2012 01:01:44">
             <stereotypes />
             <tagged-values />
             <associated-diagrams />
             <owned-items />
             <style class="default" />
-            <sequence-action type="call" message="UpdateUser(Form)" is-asynchronous="false" return-value="" assign-to-variable="">
-              <parameters />
-            </sequence-action>
+            <sequence-action type="call" message="UpdateUser(Form)" is-asynchronous="false" />
           </item>
-          <item id="ddip325587754157628320_489173159490516970" cid="AN005" type="sequence-action" name="Action5" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="09/28/2012 01:04:10">
+          <item id="ddip325587754157628320_489173159490516970" cid="AN005" type="sequence-action" name="Action5" style-class="default" is-abstract="false" creation-date="09/28/2012 01:04:10">
             <stereotypes />
             <tagged-values />
             <associated-diagrams />
             <owned-items />
             <style class="default" />
-            <sequence-action type="call" message="UpdateUser(Form)" is-asynchronous="false" return-value="" assign-to-variable="">
-              <parameters />
-            </sequence-action>
+            <sequence-action type="call" message="UpdateUser(Form)" is-asynchronous="false" />
           </item>
-          <item id="ddip325587754157628320_605847420237106245" cid="AB003" type="activation-bar" name="ActivationBar1" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="09/28/2012 01:04:11">
+          <item id="ddip325587754157628320_605847420237106245" cid="AB003" type="activation-bar" name="ActivationBar1" style-class="default" is-abstract="false" creation-date="09/28/2012 01:04:11">
             <stereotypes />
             <tagged-values />
             <associated-diagrams />
             <owned-items />
             <style class="default" />
           </item>
-          <item id="ddip325587754157628320_648538012862922435" cid="AN006" type="sequence-action" name="Action6" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="09/28/2012 01:04:51">
+          <item id="ddip325587754157628320_648538012862922435" cid="AN006" type="sequence-action" name="Action6" style-class="default" is-abstract="false" creation-date="09/28/2012 01:04:51">
             <stereotypes />
             <tagged-values />
             <associated-diagrams />
             <owned-items />
             <style class="default" />
-            <sequence-action type="call" message="UpdateUser(Form)" is-asynchronous="false" return-value="" assign-to-variable="">
-              <parameters />
-            </sequence-action>
+            <sequence-action type="call" message="UpdateUser(Form)" is-asynchronous="false" />
           </item>
-          <item id="ddip325587754157628320_129144792894949646" cid="AB004" type="activation-bar" name="ActivationBar2" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="09/28/2012 01:04:53">
+          <item id="ddip325587754157628320_129144792894949646" cid="AB004" type="activation-bar" name="ActivationBar2" style-class="default" is-abstract="false" creation-date="09/28/2012 01:04:53">
             <stereotypes />
             <tagged-values />
             <associated-diagrams />
             <owned-items />
             <style class="default" />
           </item>
-          <item id="ddip325587754157628320_529554975430882518" cid="AN007" type="sequence-action" name="Action7" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="09/28/2012 01:05:27">
+          <item id="ddip325587754157628320_529554975430882518" cid="AN007" type="sequence-action" name="Action7" style-class="default" is-abstract="false" creation-date="09/28/2012 01:05:27">
             <stereotypes />
             <tagged-values />
             <associated-diagrams />
             <owned-items />
             <style class="default" />
-            <sequence-action type="return" message="DataSet" is-asynchronous="false" return-value="" assign-to-variable="">
-              <parameters />
-            </sequence-action>
+            <sequence-action type="return" message="DataSet" is-asynchronous="false" />
           </item>
-          <item id="ddip325587754157628320_148557039251786679" cid="AN008" type="sequence-action" name="Action8" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="09/28/2012 01:11:29">
+          <item id="ddip325587754157628320_148557039251786679" cid="AN008" type="sequence-action" name="Action8" style-class="default" is-abstract="false" creation-date="09/28/2012 01:11:29">
             <stereotypes />
             <tagged-values />
             <associated-diagrams />
             <owned-items />
             <style class="default" />
-            <sequence-action type="return" message="Display(Object)" is-asynchronous="false" return-value="" assign-to-variable="">
-              <parameters />
-            </sequence-action>
+            <sequence-action type="return" message="Display(Object)" is-asynchronous="false" />
           </item>
-          <item id="ddip325587754157628320_566797877436032635" cid="AN009" type="sequence-action" name="Action9" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="09/28/2012 01:12:01">
+          <item id="ddip325587754157628320_566797877436032635" cid="AN009" type="sequence-action" name="Action9" style-class="default" is-abstract="false" creation-date="09/28/2012 01:12:01">
             <stereotypes />
             <tagged-values />
             <associated-diagrams />
             <owned-items />
             <style class="default" />
-            <sequence-action type="return" message="Form" is-asynchronous="false" return-value="" assign-to-variable="">
-              <parameters />
-            </sequence-action>
+            <sequence-action type="return" message="Form" is-asynchronous="false" />
           </item>
         </abstract-items>
         <layer name="Default" visible="true" enabled="true" locked="false">
-          <item id="mdip849239985545140461_703539341595401375" iid="3781fe287bb345bc8f3bff17a31b7268" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="10/01/2012 23:54:46" order-index="0" type="lifeline">
-            <layout ax="84" ay="50" awidth="140" aheight="290" x="84" y="49" width="140" height="290" angle="0" />
+          <item id="mdip849239985545140461_703539341595401375" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" order-index="0" type="lifeline">
+            <layout ax="84" ay="50" awidth="140" aheight="290" x="84" y="49" width="140" height="290" />
           </item>
-          <item id="mdip849239985545140461_588130778478937927" iid="03436f7d93994a53aa3e7cad50a840ea" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="10/01/2012 23:54:46" order-index="1" presentation-style="stereotype" type="lifeline">
-            <layout ax="687" ay="50" awidth="140" aheight="291" x="687" y="50" width="140" height="291" angle="0" />
+          <item id="mdip849239985545140461_588130778478937927" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" order-index="1" presentation-style="stereotype" type="lifeline">
+            <layout ax="687" ay="50" awidth="140" aheight="291" x="687" y="50" width="140" height="291" />
           </item>
-          <item id="mdip849239985545140461_686639798101655261" iid="75f3ad283b6943d6b242cd0b41352027" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="10/01/2012 23:54:46" order-index="2" presentation-style="stereotype" type="lifeline">
-            <layout ax="485" ay="50" awidth="156" aheight="292" x="485" y="50" width="156" height="292" angle="0" />
+          <item id="mdip849239985545140461_686639798101655261" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" order-index="2" presentation-style="stereotype" type="lifeline">
+            <layout ax="485" ay="50" awidth="156" aheight="292" x="485" y="50" width="156" height="292" />
           </item>
-          <item id="mdip849239985545140461_113011615726747131" iid="46a8ea564abb4117ac88078c7be1aa0f" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="10/01/2012 23:54:46" order-index="3" presentation-style="stereotype" type="lifeline">
-            <layout ax="290" ay="50" awidth="140" aheight="290" x="290" y="50" width="140" height="290" angle="0" />
+          <item id="mdip849239985545140461_113011615726747131" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" order-index="3" presentation-style="stereotype" type="lifeline">
+            <layout ax="290" ay="50" awidth="140" aheight="290" x="290" y="50" width="140" height="290" />
           </item>
-          <item id="mdip849239985545140461_218111393979669358" iid="3d25cfd24d1941c7ba70bc48fb55d1f0" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="10/01/2012 23:54:46" order-index="4" type="sequence-action">
+          <item id="mdip849239985545140461_218111393979669358" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" order-index="4" type="sequence-action">
             <layout x1="164" y1="165" x2="350" y2="165" ax="164" ay="150" awidth="186" aheight="20" x="164" y="150" width="186" height="20" message-x="0" message-y="-10" />
             <sequence-action from="mdip849239985545140461_189450862152201195" to="mdip849239985545140461_627851068916969637" />
           </item>
-          <item id="mdip849239985545140461_189450862152201195" iid="ad66ec1ecf3b41afa9ea9aa2dd0329b6" container="mdip849239985545140461_703539341595401375" container-iid="3781fe287bb345bc8f3bff17a31b7268" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="10/01/2012 23:54:46" order-index="5" type="entity">
-            <layout ax="144" ay="165" awidth="20" aheight="144" x="144" y="165" width="21" height="144" angle="0" />
+          <item id="mdip849239985545140461_189450862152201195" container="mdip849239985545140461_703539341595401375" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" order-index="5" type="entity">
+            <layout ax="144" ay="165" awidth="20" aheight="144" x="144" y="165" width="21" height="144" />
           </item>
-          <item id="mdip849239985545140461_627851068916969637" iid="7bf08db708c74b95aca25a8ec34fbc84" container="mdip849239985545140461_113011615726747131" container-iid="46a8ea564abb4117ac88078c7be1aa0f" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="10/01/2012 23:54:46" order-index="6" type="entity">
-            <layout ax="350" ay="165" awidth="20" aheight="119" x="350" y="165" width="22" height="119" angle="0" />
+          <item id="mdip849239985545140461_627851068916969637" container="mdip849239985545140461_113011615726747131" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" order-index="6" type="entity">
+            <layout ax="350" ay="165" awidth="20" aheight="119" x="350" y="165" width="22" height="119" />
           </item>
-          <item id="mdip849239985545140461_714889377911071103" iid="36f27ea5be1c4068b057832a55d7f714" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="10/01/2012 23:54:46" order-index="7" type="sequence-action">
+          <item id="mdip849239985545140461_714889377911071103" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" order-index="7" type="sequence-action">
             <layout x1="370" y1="179" x2="553" y2="179" ax="370" ay="164" awidth="183" aheight="20" x="370" y="164" width="183" height="20" message-x="1" message-y="-10" />
             <sequence-action from="mdip849239985545140461_627851068916969637" to="mdip849239985545140461_997276535746127556" />
           </item>
-          <item id="mdip849239985545140461_997276535746127556" iid="c8f3b2c13e5449b3903b9600436211ae" container="mdip849239985545140461_686639798101655261" container-iid="75f3ad283b6943d6b242cd0b41352027" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="10/01/2012 23:54:46" order-index="8" type="entity">
-            <layout ax="553" ay="179" awidth="20" aheight="80" x="553" y="179" width="20" height="40" angle="0" />
+          <item id="mdip849239985545140461_997276535746127556" container="mdip849239985545140461_686639798101655261" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" order-index="8" type="entity">
+            <layout ax="553" ay="179" awidth="20" aheight="80" x="553" y="179" width="20" height="40" />
           </item>
-          <item id="mdip849239985545140461_534916840534967182" iid="48719e00c4f44b32b4244ecd24c3bb25" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="10/01/2012 23:54:46" order-index="9" type="sequence-action">
+          <item id="mdip849239985545140461_534916840534967182" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" order-index="9" type="sequence-action">
             <layout x1="573" y1="187" x2="747" y2="187" ax="573" ay="172" awidth="174" aheight="20" x="573" y="172" width="174" height="20" message-x="0" message-y="-10" />
             <sequence-action from="mdip849239985545140461_997276535746127556" to="mdip849239985545140461_908787212752402246" />
           </item>
-          <item id="mdip849239985545140461_908787212752402246" iid="64da6778dc02431a91753fe515bd2ddd" container="mdip849239985545140461_588130778478937927" container-iid="03436f7d93994a53aa3e7cad50a840ea" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="10/01/2012 23:54:46" order-index="10" type="entity">
-            <layout ax="747" ay="185" awidth="20" aheight="48" x="747" y="185" width="20" height="40" angle="0" />
+          <item id="mdip849239985545140461_908787212752402246" container="mdip849239985545140461_588130778478937927" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" order-index="10" type="entity">
+            <layout ax="747" ay="185" awidth="20" aheight="48" x="747" y="185" width="20" height="40" />
           </item>
-          <item id="mdip849239985545140461_891504166627221203" iid="fe2048b51e8c4a83b02a2aa2d2fd0694" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="10/01/2012 23:54:46" order-index="11" type="sequence-action">
+          <item id="mdip849239985545140461_891504166627221203" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" order-index="11" type="sequence-action">
             <layout x1="747" y1="233" x2="573" y2="233" ax="573" ay="218" awidth="174" aheight="20" x="573" y="218" width="174" height="20" message-x="0" message-y="-10" />
             <sequence-action from="mdip849239985545140461_908787212752402246" to="mdip849239985545140461_997276535746127556" />
           </item>
-          <item id="mdip849239985545140461_175372114188348217" iid="c04a5ca847434c35bb327323384be268" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="10/01/2012 23:54:46" order-index="12" type="sequence-action">
+          <item id="mdip849239985545140461_175372114188348217" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" order-index="12" type="sequence-action">
             <layout x1="553" y1="259" x2="370" y2="259" ax="370" ay="244" awidth="183" aheight="20" x="370" y="244" width="183" height="20" message-x="0" message-y="-10" />
             <sequence-action from="mdip849239985545140461_997276535746127556" to="mdip849239985545140461_627851068916969637" />
           </item>
-          <item id="mdip849239985545140461_643751469602129627" iid="80c940a7d737435dbb2ebdf8c67bbc7f" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="10/01/2012 23:54:46" order-index="13" type="sequence-action">
+          <item id="mdip849239985545140461_643751469602129627" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" order-index="13" type="sequence-action">
             <layout x1="350" y1="283" x2="164" y2="283" ax="164" ay="268" awidth="186" aheight="20" x="164" y="268" width="186" height="20" message-x="0" message-y="-10" />
             <sequence-action from="mdip849239985545140461_627851068916969637" to="mdip849239985545140461_189450862152201195" />
           </item>
         </layer>
       </diagram>
-      <diagram type="uml-sequence" id="p217118446285067638" name="tao don vi phong ban" order-index="3" show-nullability="false">
+      <diagram type="uml-sequence" id="p217118446285067638" name="tao don vi phong ban" order-index="3">
         <style>
           <background-color index="1" color="#FFFFFFFF" />
           <background-color index="2" color="#FFFFFFFF" />
@@ -962,54 +878,53 @@
           <revision-count>0</revision-count>
           <version />
         </meta>
-        <tagged-values />
         <abstract-items />
         <layer name="Default" visible="true" enabled="true" locked="false">
-          <item id="mdip522760233669510723_462821554151445792" iid="14c5022de41f41819548902d3b8016f4" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="10/01/2012 23:54:45" order-index="0" type="lifeline">
-            <layout ax="84" ay="50" awidth="140" aheight="290" x="84" y="50" width="140" height="290" angle="0" />
+          <item id="mdip522760233669510723_462821554151445792" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" order-index="0" type="lifeline">
+            <layout ax="84" ay="50" awidth="140" aheight="290" x="84" y="50" width="140" height="290" />
           </item>
-          <item id="mdip522760233669510723_339199878601947080" iid="4a126c83afde4d659fd51ca8fa6c6d96" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="10/01/2012 23:54:45" order-index="1" presentation-style="stereotype" type="lifeline">
-            <layout ax="687" ay="50" awidth="140" aheight="291" x="687" y="51" width="140" height="291" angle="0" />
+          <item id="mdip522760233669510723_339199878601947080" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" order-index="1" presentation-style="stereotype" type="lifeline">
+            <layout ax="687" ay="50" awidth="140" aheight="291" x="687" y="51" width="140" height="291" />
           </item>
-          <item id="mdip522760233669510723_626390492815314164" iid="2ec26e8f05e84bcea29f622841ab0962" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="10/01/2012 23:54:45" order-index="2" presentation-style="stereotype" type="lifeline">
-            <layout ax="486" ay="50" awidth="169" aheight="292" x="486" y="50" width="169" height="292" angle="0" />
+          <item id="mdip522760233669510723_626390492815314164" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" order-index="2" presentation-style="stereotype" type="lifeline">
+            <layout ax="486" ay="50" awidth="169" aheight="292" x="486" y="50" width="169" height="292" />
           </item>
-          <item id="mdip522760233669510723_940912652712522691" iid="52030a1f7e2b4c7da36d34061b198490" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="10/01/2012 23:54:45" order-index="3" presentation-style="stereotype" type="lifeline">
-            <layout ax="290" ay="50" awidth="140" aheight="290" x="290" y="51" width="140" height="290" angle="0" />
+          <item id="mdip522760233669510723_940912652712522691" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" order-index="3" presentation-style="stereotype" type="lifeline">
+            <layout ax="290" ay="50" awidth="140" aheight="290" x="290" y="51" width="140" height="290" />
           </item>
-          <item id="mdip522760233669510723_283429912655825919" iid="c114e1f5f3a64d6da15e69d2ea940f14" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="10/01/2012 23:54:45" order-index="4" type="sequence-action">
+          <item id="mdip522760233669510723_283429912655825919" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" order-index="4" type="sequence-action">
             <layout x1="164" y1="175" x2="350" y2="175" ax="164" ay="160" awidth="186" aheight="20" x="164" y="160" width="186" height="20" message-x="0" message-y="-10" />
             <sequence-action from="mdip522760233669510723_431463533207125195" to="mdip522760233669510723_501832753866650870" />
           </item>
-          <item id="mdip522760233669510723_431463533207125195" iid="98a68949239c43799b57440104530f15" container="mdip522760233669510723_462821554151445792" container-iid="14c5022de41f41819548902d3b8016f4" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="10/01/2012 23:54:45" order-index="5" type="entity">
-            <layout ax="144" ay="166" awidth="20" aheight="144" x="144" y="166" width="21" height="144" angle="0" />
+          <item id="mdip522760233669510723_431463533207125195" container="mdip522760233669510723_462821554151445792" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" order-index="5" type="entity">
+            <layout ax="144" ay="166" awidth="20" aheight="144" x="144" y="166" width="21" height="144" />
           </item>
-          <item id="mdip522760233669510723_501832753866650870" iid="d4443a3378064815a01d9b49c6a900a6" container="mdip522760233669510723_940912652712522691" container-iid="52030a1f7e2b4c7da36d34061b198490" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="10/01/2012 23:54:45" order-index="6" type="entity">
-            <layout ax="350" ay="166" awidth="20" aheight="119" x="350" y="166" width="22" height="119" angle="0" />
+          <item id="mdip522760233669510723_501832753866650870" container="mdip522760233669510723_940912652712522691" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" order-index="6" type="entity">
+            <layout ax="350" ay="166" awidth="20" aheight="119" x="350" y="166" width="22" height="119" />
           </item>
-          <item id="mdip522760233669510723_737770606231147150" iid="aecbf64de6bf4b6b9b5e175862934c02" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="10/01/2012 23:54:45" order-index="7" type="sequence-action">
-            <layout x1="370" y1="180" x2="560" y2="180" ax="370" ay="165" awidth="190" aheight="20" x="370" y="165" width="189" height="20" message-x="1" message-y="-10" />
+          <item id="mdip522760233669510723_737770606231147150" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" order-index="7" type="sequence-action">
+            <layout x1="370" y1="180" x2="560" y2="180" ax="370" ay="165" awidth="190" aheight="20" x="370" y="165" width="190" height="20" message-x="1" message-y="-10" />
             <sequence-action from="mdip522760233669510723_501832753866650870" to="mdip522760233669510723_400259675602693981" />
           </item>
-          <item id="mdip522760233669510723_400259675602693981" iid="8ba98063ba424d80a2aeee0ed6a3ad41" container="mdip522760233669510723_626390492815314164" container-iid="2ec26e8f05e84bcea29f622841ab0962" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="10/01/2012 23:54:45" order-index="8" type="entity">
-            <layout ax="560.5" ay="180" awidth="20" aheight="80" x="560.5" y="180" width="20" height="40" angle="0" />
+          <item id="mdip522760233669510723_400259675602693981" container="mdip522760233669510723_626390492815314164" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" order-index="8" type="entity">
+            <layout ax="560.5" ay="180" awidth="20" aheight="80" x="560.5" y="180" width="20" height="40" />
           </item>
-          <item id="mdip522760233669510723_530550481221177664" iid="65876b7077b842c9817d4febe91091c4" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="10/01/2012 23:54:45" order-index="9" type="sequence-action">
-            <layout x1="580" y1="188" x2="747" y2="188" ax="580" ay="173" awidth="167" aheight="20" x="579" y="173" width="168" height="20" message-x="0" message-y="-10" />
+          <item id="mdip522760233669510723_530550481221177664" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" order-index="9" type="sequence-action">
+            <layout x1="580" y1="188" x2="747" y2="188" ax="580" ay="173" awidth="167" aheight="20" x="580" y="173" width="167" height="20" message-x="0" message-y="-10" />
             <sequence-action from="mdip522760233669510723_400259675602693981" to="mdip522760233669510723_649419765370594388" />
           </item>
-          <item id="mdip522760233669510723_649419765370594388" iid="faac37655e44455f9496f2548f769fc1" container="mdip522760233669510723_339199878601947080" container-iid="4a126c83afde4d659fd51ca8fa6c6d96" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="10/01/2012 23:54:45" order-index="10" type="entity">
-            <layout ax="747" ay="186" awidth="20" aheight="48" x="747" y="186" width="20" height="40" angle="0" />
+          <item id="mdip522760233669510723_649419765370594388" container="mdip522760233669510723_339199878601947080" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" order-index="10" type="entity">
+            <layout ax="747" ay="186" awidth="20" aheight="48" x="747" y="186" width="20" height="40" />
           </item>
-          <item id="mdip522760233669510723_502985597372492474" iid="b6d803ccea5840019d945b35fdfd2ba5" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="10/01/2012 23:54:45" order-index="11" type="sequence-action">
-            <layout x1="747" y1="234" x2="580" y2="234" ax="580" ay="219" awidth="167" aheight="20" x="579" y="219" width="168" height="20" message-x="0" message-y="-10" />
+          <item id="mdip522760233669510723_502985597372492474" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" order-index="11" type="sequence-action">
+            <layout x1="747" y1="234" x2="580" y2="234" ax="580" ay="219" awidth="167" aheight="20" x="580" y="219" width="167" height="20" message-x="0" message-y="-10" />
             <sequence-action from="mdip522760233669510723_649419765370594388" to="mdip522760233669510723_400259675602693981" />
           </item>
-          <item id="mdip522760233669510723_359719746616106606" iid="08b10029f00742808a840f24186aa642" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="10/01/2012 23:54:45" order-index="12" type="sequence-action">
-            <layout x1="560" y1="260" x2="370" y2="260" ax="370" ay="245" awidth="190" aheight="20" x="370" y="245" width="189" height="20" message-x="0" message-y="-10" />
+          <item id="mdip522760233669510723_359719746616106606" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" order-index="12" type="sequence-action">
+            <layout x1="560" y1="260" x2="370" y2="260" ax="370" ay="245" awidth="190" aheight="20" x="370" y="245" width="190" height="20" message-x="0" message-y="-10" />
             <sequence-action from="mdip522760233669510723_400259675602693981" to="mdip522760233669510723_501832753866650870" />
           </item>
-          <item id="mdip522760233669510723_632799311619627386" iid="e139fac79c144fde88607bb4486521d2" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="10/01/2012 23:54:45" order-index="13" type="sequence-action">
+          <item id="mdip522760233669510723_632799311619627386" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" order-index="13" type="sequence-action">
             <layout x1="350" y1="284" x2="164" y2="284" ax="164" ay="269" awidth="186" aheight="20" x="164" y="269" width="186" height="20" message-x="0" message-y="-10" />
             <sequence-action from="mdip522760233669510723_501832753866650870" to="mdip522760233669510723_431463533207125195" />
           </item>
