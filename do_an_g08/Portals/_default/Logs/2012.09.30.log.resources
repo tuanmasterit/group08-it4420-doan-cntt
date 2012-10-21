@@ -1,0 +1,71 @@
+2012-09-30 22:48:15,275 [linh-bui][Thread:9][ERROR] DotNetNuke.Entities.Controllers.HostController - Login failed for user 'sa'.
+System.Data.SqlClient.SqlException: Login failed for user 'sa'.
+   at System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   at System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   at System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(String connectionString, String spName, Object[] parameterValues)
+   at DotNetNuke.Data.SqlDataProvider.GetHostSettings()
+   at DotNetNuke.Entities.Controllers.HostController.GetSettingsDictionaryCallBack(CacheItemArgs cacheItemArgs)
+2012-09-30 22:48:15,275 [linh-bui][Thread:14][ERROR] DotNetNuke.Entities.Controllers.HostController - Login failed for user 'sa'.
+System.Data.SqlClient.SqlException: Login failed for user 'sa'.
+   at System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   at System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   at System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(String connectionString, String spName, Object[] parameterValues)
+   at DotNetNuke.Data.SqlDataProvider.GetHostSettings()
+   at DotNetNuke.Entities.Controllers.HostController.GetSettingsDictionaryCallBack(CacheItemArgs cacheItemArgs)
+2012-09-30 22:48:15,286 [linh-bui][Thread:16][ERROR] DotNetNuke.Entities.Controllers.HostController - Login failed for user 'sa'.
+System.Data.SqlClient.SqlException: Login failed for user 'sa'.
+   at System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   at System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   at System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(String connectionString, String spName, Object[] parameterValues)
+   at DotNetNuke.Data.SqlDataProvider.GetHostSettings()
+   at DotNetNuke.Entities.Controllers.HostController.GetSettingsDictionaryCallBack(CacheItemArgs cacheItemArgs)
+2012-09-30 22:48:15,297 [linh-bui][Thread:17][ERROR] DotNetNuke.Entities.Controllers.HostController - Login failed for user 'sa'.
+System.Data.SqlClient.SqlException: Login failed for user 'sa'.
+   at System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   at System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   at System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(String connectionString, String spName, Object[] parameterValues)
+   at DotNetNuke.Data.SqlDataProvider.GetHostSettings()
+   at DotNetNuke.Entities.Controllers.HostController.GetSettingsDictionaryCallBack(CacheItemArgs cacheItemArgs)
+2012-09-30 22:48:15,281 [linh-bui][Thread:18][ERROR] DotNetNuke.Entities.Controllers.HostController - Login failed for user 'sa'.
+System.Data.SqlClient.SqlException: Login failed for user 'sa'.
+   at System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   at System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   at System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(String connectionString, String spName, Object[] parameterValues)
+   at DotNetNuke.Data.SqlDataProvider.GetHostSettings()
+   at DotNetNuke.Entities.Controllers.HostController.GetSettingsDictionaryCallBack(CacheItemArgs cacheItemArgs)
+2012-09-30 22:48:15,278 [linh-bui][Thread:4][ERROR] DotNetNuke.Entities.Controllers.HostController - Login failed for user 'sa'.
+System.Data.SqlClient.SqlException: Login failed for user 'sa'.
+   at System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   at System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   at System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(String connectionString, String spName, Object[] parameterValues)
+   at DotNetNuke.Data.SqlDataProvider.GetHostSettings()
+   at DotNetNuke.Entities.Controllers.HostController.GetSettingsDictionaryCallBack(CacheItemArgs cacheItemArgs)
+2012-09-30 23:07:23,653 [linh-bui][Thread:21][ERROR] DotNetNuke.Services.Installer.Installer - Object reference not set to an instance of an object.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at DotNetNuke.Services.Installer.Installer.LogInstallEvent(String package, String eventType)
+2012-09-30 23:07:43,857 [linh-bui][Thread:25][ERROR] DotNetNuke.UI.ControlPanel.AddPage - Page name is required.
+DotNetNuke.Web.UI.DotNetNukeException: Page name is required.
+   at DotNetNuke.Web.UI.RibbonBarManager.SaveTabInfoObject(TabInfo tab, TabInfo relativeToTab, TabRelativeLocation location, String templateMapPath)
+   at DotNetNuke.UI.ControlPanel.AddPage.CmdAddPageClick(Object sender, EventArgs e)
+2012-09-30 23:07:45,015 [linh-bui][Thread:19][ERROR] DotNetNuke.UI.ControlPanel.AddPage - Page name is required.
+DotNetNuke.Web.UI.DotNetNukeException: Page name is required.
+   at DotNetNuke.Web.UI.RibbonBarManager.SaveTabInfoObject(TabInfo tab, TabInfo relativeToTab, TabRelativeLocation location, String templateMapPath)
+   at DotNetNuke.UI.ControlPanel.AddPage.CmdAddPageClick(Object sender, EventArgs e)

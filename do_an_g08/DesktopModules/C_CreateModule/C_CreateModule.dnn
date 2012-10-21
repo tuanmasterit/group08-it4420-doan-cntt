@@ -1,0 +1,33 @@
+<dotnetnuke version="3.0" type="Module">
+  <folders>
+    <folder>
+      <name>C_CreateModule</name>
+      <friendlyname>C_CreateModule</friendlyname>
+      <foldername>C_CreateModule</foldername>
+      <modulename>C_CreateModule</modulename>
+      <description>A C_CreateModule module</description>
+      <version>01.00.00</version>
+      <modules>
+        <module>
+          <friendlyname>C_CreateModule</friendlyname>
+          <cachetime>60</cachetime>
+          <controls>
+            <control>
+              <src>DesktopModules/C_CreateModule/C_CreateModule.ascx</src>
+              <type>View</type>
+              <helpurl></helpurl>
+            </control>
+          </controls>
+        </module>
+      </modules>
+      <files>
+        <file>
+          <name>C_CreateModule.ascx</name>
+        </file>
+        <file>
+          <name>C_CreateModule.ascx.cs</name>
+        </file>
+      </files>
+    </folder>
+  </folders>
+</dotnetnuke>
