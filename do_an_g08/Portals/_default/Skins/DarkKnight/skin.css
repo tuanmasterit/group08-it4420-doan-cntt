@@ -20,14 +20,18 @@ p, ul, ol{margin:0;padding:0 0 1em 0;}
 h1{font-family:TitilliumText22LBold;font-size:26px;}
 h2{font-family:TitilliumText22LBold;font-size:22px;}
 h3{font-family:TitilliumText22LBold;font-size:18px;}
-
-#Header{width:100%;background:url(images/Header-BG.png) repeat-x center bottom;position:relative; z-index:10;}
-    #Header .Content{position:relative;width:960px;height:63px;margin:auto;}
+/* start HeaderTop */
+#HeaderTop{ background:none repeat-x center bottom; height:20px;}
+#HeaderTop a{ margin-left:84%; font-weight:bold;}
+/* end HeaderTop */
+#HeaderBanner{height:60px; background:url(images/banner.jpg) no-repeat scroll left transparent; margin-left:10%;}
+#Header{background:url(images/Header-BG.png) repeat-x center bottom;position:relative; z-index:10;margin-left:10%; margin-right:10%;}
+    #Header .Content{position:relative;width:960px;height:50px;margin:auto;}
     #Header #ContentBG{width:960px;margin:auto;background:#ff0000 url(images/Header-BG-Variable.png) no-repeat center bottom;}
     /*WAM - removed z-index*/
-    #Header #Nav{width:720px;height:32px;position:absolute;bottom:25px;left:0;}
+    #Header #Nav{width:720px;height:32px;position:absolute;bottom:17px;left:0;}
     
-    #Header .SearchContainer{position:absolute;z-index:22;bottom:19px;right:0px;width:232px;height:32px;background:url(images/search.png);}
+    #Header .SearchContainer{position:absolute;z-index:22;bottom:10px;right:0px;width:232px;height:32px;background:url(images/search.png);}
     #Header .SearchContainer .SearchBorder{border:0;background:none;}
     #Header .SearchContainer .SearchIcon{float:left;width:40px;padding:3px;background-position:9px 6px;}
     #Header .SearchContainer .SearchTextBox{float:left;background:none;width:140px;margin:3px;color:#eee;}
@@ -35,13 +39,77 @@ h3{font-family:TitilliumText22LBold;font-size:18px;}
 
 #Content {min-height: 600px; position:relative; z-index:1;}
 
-#Panes{width:960px;margin:auto;}
+#Panes{width:80%;margin:auto;}
     
+    /* start CSS do du lieu */
+    html {min-height: 100%;}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+#accordion {
+	list-style: none;
+	width: 100%;
+
+}
+#accordion li{
+	display: block;
+	background-color:  #eaeaea;
+	font-weight: bold;
+	margin: auto;
+	cursor: pointer;
+	height:32px;
+	text-align:left;
+	color:#4f4f4f;
+}
+
+#accordion li:hover
+{
+	background:#CCC;
+}
+#accordion ul {
+	list-style: none;
+
+	display: none;
+}
+#accordion ul li{
+	font-weight: normal;
+	cursor: auto;
+	background-color: #ffffff ;
+	text-align:left;
+
+}
+
+#accordion ul li:hover
+{
+	background:#fff;
+}
+#accordion a {
+	text-decoration: none;
+}
+#accordion a:hover 
+{
+	background:#c4f4ff;
+}
+    /* end CSS do du lieu */
 /* LOGIN GROUP STYLES */
-	#LogoRow{
-		padding:12px 0;
-		min-height:75px;
+	#LogoRow
+	{
+		padding:0;
+		min-height:220px;
 	}
+	/*	Start Css for slide Logo */
+* { margin: 0; padding: 0 }
+	body { font: 14px arial }
+	#wrapper { width: 800px; margin: 0 auto; margin-top: 50px }
+	#slide, #slide-nav {background: #000; padding: 10px; width: 1060px; height: 195px}
+	#slide img { top: 10px !important; left: 10px !important }
+	#slide-nav {height: 20px}
+	#slide-nav a{ background: #eee; margin-right: 4px; padding: 1px 5px; text-decoration: none; border: 2px solid green; color: green}
+	#slide-nav a.activeSlide{background: green; color: #fff}
+/*	End Css for banner*/
 	
 	/* Company Logo */
 	#LogoRow > a{ 
@@ -243,8 +311,8 @@ h3{font-family:TitilliumText22LBold;font-size:18px;}
     
 	#dnn_ContentPane, #dnn_BottomPane{clear:both;}
 	
-	#DNN6.Home #dnn_LeftPane, #DNN6.TwoColRight #dnn_LeftPane{float:left;width:630px;margin:0 30px 0 0;min-height:1px;}
-	#DNN6.Home #dnn_RightPane, #DNN6.TwoColRight #dnn_RightPane{float:left;width:300px;}
+	#DNN6.Home #dnn_LeftPane, #DNN6.TwoColRight #dnn_LeftPane{float:left;width:20%;margin:0 30px 0 0;min-height:1px;}
+	#DNN6.Home #dnn_RightPane, #DNN6.TwoColRight #dnn_RightPane{float:left;width:70%;}
 	
 	#DNN6.ThreeCol #dnn_LeftPane{float:left;width:180px;margin:0 30px 0 0;}
 	#DNN6.ThreeCol #dnn_CenterPane{float:left;width:470px;margin:0 30px 0 0;}
