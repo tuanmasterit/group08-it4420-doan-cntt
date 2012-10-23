@@ -1,0 +1,2031 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="do_an_g08" Class="MyLinqDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=.\sqlExpress;Initial Catalog=do_an_g08;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="do_an_g08ConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Affiliates" Member="Affiliates">
+    <Type Name="Affiliate">
+      <Column Name="AffiliateId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="VendorId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CPC" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Clicks" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CPA" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Acquisitions" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Vendor_Affiliate" Member="Vendor" ThisKey="VendorId" OtherKey="VendorId" Type="Vendor" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.zWorkProcess" Member="zWorkProcesses">
+    <Type Name="zWorkProcess">
+      <Column Name="WPID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StartTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FinishTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="OfficeAddr" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="WorkAs" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
+      <Column Name="Detail" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Association Name="User_zWorkProcess" Member="User" ThisKey="UserID" OtherKey="UserID" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AnonymousUsers" Member="AnonymousUsers">
+    <Type Name="AnonymousUser">
+      <Column Name="UserID" Type="System.String" DbType="Char(36) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PortalID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TabID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreationDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LastActiveDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Portal_AnonymousUser" Member="Portal" ThisKey="PortalID" OtherKey="PortalID" Type="Portal" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.aspnet_Applications" Member="aspnet_Applications">
+    <Type Name="aspnet_Application">
+      <Column Name="ApplicationName" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="LoweredApplicationName" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="ApplicationId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Association Name="aspnet_Application_aspnet_Membership" Member="aspnet_Memberships" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="aspnet_Membership" />
+      <Association Name="aspnet_Application_aspnet_Role" Member="aspnet_Roles" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="aspnet_Role" />
+      <Association Name="aspnet_Application_aspnet_User" Member="aspnet_Users" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="aspnet_User" />
+    </Type>
+  </Table>
+  <Table Name="dbo.aspnet_Membership" Member="aspnet_Memberships">
+    <Type Name="aspnet_Membership">
+      <Column Name="ApplicationId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(128) NOT NULL" CanBeNull="false" />
+      <Column Name="PasswordFormat" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PasswordSalt" Type="System.String" DbType="NVarChar(128) NOT NULL" CanBeNull="false" />
+      <Column Name="MobilePIN" Type="System.String" DbType="NVarChar(16)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="LoweredEmail" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="PasswordQuestion" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="PasswordAnswer" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
+      <Column Name="IsApproved" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsLockedOut" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LastLoginDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LastPasswordChangedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LastLockoutDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="FailedPasswordAttemptCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FailedPasswordAttemptWindowStart" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="FailedPasswordAnswerAttemptCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FailedPasswordAnswerAttemptWindowStart" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Comment" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="aspnet_Application_aspnet_Membership" Member="aspnet_Application" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="aspnet_Application" IsForeignKey="true" />
+      <Association Name="aspnet_User_aspnet_Membership" Member="aspnet_User" ThisKey="UserId" OtherKey="UserId" Type="aspnet_User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.aspnet_Profile" Member="aspnet_Profiles">
+    <Type Name="aspnet_Profile">
+      <Column Name="UserId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PropertyNames" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="PropertyValuesString" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="PropertyValuesBinary" Type="System.Data.Linq.Binary" DbType="Image NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="LastUpdatedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="aspnet_User_aspnet_Profile" Member="aspnet_User" ThisKey="UserId" OtherKey="UserId" Type="aspnet_User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.aspnet_Roles" Member="aspnet_Roles">
+    <Type Name="aspnet_Role">
+      <Column Name="ApplicationId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="RoleId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RoleName" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="LoweredRoleName" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Association Name="aspnet_Role_aspnet_UsersInRole" Member="aspnet_UsersInRoles" ThisKey="RoleId" OtherKey="RoleId" Type="aspnet_UsersInRole" />
+      <Association Name="aspnet_Application_aspnet_Role" Member="aspnet_Application" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="aspnet_Application" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.aspnet_SchemaVersions" Member="aspnet_SchemaVersions">
+    <Type Name="aspnet_SchemaVersion">
+      <Column Name="Feature" Type="System.String" DbType="NVarChar(128) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CompatibleSchemaVersion" Type="System.String" DbType="NVarChar(128) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IsCurrentVersion" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.aspnet_Users" Member="aspnet_Users">
+    <Type Name="aspnet_User">
+      <Column Name="ApplicationId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="LoweredUserName" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="MobileAlias" Type="System.String" DbType="NVarChar(16)" CanBeNull="true" />
+      <Column Name="IsAnonymous" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LastActivityDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="aspnet_User_aspnet_Membership" Member="aspnet_Membership" ThisKey="UserId" OtherKey="UserId" Type="aspnet_Membership" Cardinality="One" />
+      <Association Name="aspnet_User_aspnet_Profile" Member="aspnet_Profile" ThisKey="UserId" OtherKey="UserId" Type="aspnet_Profile" Cardinality="One" />
+      <Association Name="aspnet_User_aspnet_UsersInRole" Member="aspnet_UsersInRoles" ThisKey="UserId" OtherKey="UserId" Type="aspnet_UsersInRole" />
+      <Association Name="aspnet_Application_aspnet_User" Member="aspnet_Application" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="aspnet_Application" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.aspnet_UsersInRoles" Member="aspnet_UsersInRoles">
+    <Type Name="aspnet_UsersInRole">
+      <Column Name="UserId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RoleId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="aspnet_Role_aspnet_UsersInRole" Member="aspnet_Role" ThisKey="RoleId" OtherKey="RoleId" Type="aspnet_Role" IsForeignKey="true" />
+      <Association Name="aspnet_User_aspnet_UsersInRole" Member="aspnet_User" ThisKey="UserId" OtherKey="UserId" Type="aspnet_User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Assemblies" Member="Assemblies">
+    <Type Name="Assembly">
+      <Column Name="AssemblyID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PackageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AssemblyName" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Version" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="Package_Assembly" Member="Package" ThisKey="PackageID" OtherKey="PackageID" Type="Package" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Authentication" Member="Authentications">
+    <Type Name="Authentication">
+      <Column Name="AuthenticationID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PackageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AuthenticationType" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="IsEnabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="SettingsControlSrc" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="LoginControlSrc" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="LogoffControlSrc" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Package_Authentication" Member="Package" ThisKey="PackageID" OtherKey="PackageID" Type="Package" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Banners" Member="Banners">
+    <Type Name="Banner">
+      <Column Name="BannerId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="VendorId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ImageFile" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="BannerName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Impressions" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CPM" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Views" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ClickThroughs" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedByUser" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="BannerTypeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="GroupName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Criteria" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="URL" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Width" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Height" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Vendor_Banner" Member="Vendor" ThisKey="VendorId" OtherKey="VendorId" Type="Vendor" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Classification" Member="Classifications">
+    <Type Name="Classification">
+      <Column Name="ClassificationId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ClassificationName" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="ParentId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Classification_Classification" Member="Classifications" ThisKey="ClassificationId" OtherKey="ParentId" Type="Classification" />
+      <Association Name="Classification_VendorClassification" Member="VendorClassifications" ThisKey="ClassificationId" OtherKey="ClassificationId" Type="VendorClassification" />
+      <Association Name="Classification_Classification" Member="Classification1" ThisKey="ParentId" OtherKey="ClassificationId" Type="Classification" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ContentItems" Member="ContentItems">
+    <Type Name="ContentItem">
+      <Column Name="ContentItemID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Content" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ContentTypeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TabID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ModuleID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ContentKey" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Indexed" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="ContentItem_ContentItems_MetaData" Member="ContentItems_MetaDatas" ThisKey="ContentItemID" OtherKey="ContentItemID" Type="ContentItems_MetaData" />
+      <Association Name="ContentItem_ContentItems_Tag" Member="ContentItems_Tags" ThisKey="ContentItemID" OtherKey="ContentItemID" Type="ContentItems_Tag" />
+      <Association Name="ContentItem_Module" Member="Modules" ThisKey="ContentItemID" OtherKey="ContentItemID" Type="Module" />
+      <Association Name="ContentItem_Tab" Member="Tabs" ThisKey="ContentItemID" OtherKey="ContentItemID" Type="Tab" />
+      <Association Name="ContentType_ContentItem" Member="ContentType" ThisKey="ContentTypeID" OtherKey="ContentTypeID" Type="ContentType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ContentItems_MetaData" Member="ContentItems_MetaDatas">
+    <Type Name="ContentItems_MetaData">
+      <Column Name="ContentItemMetaDataID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ContentItemID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MetaDataID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MetaDataValue" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="ContentItem_ContentItems_MetaData" Member="ContentItem" ThisKey="ContentItemID" OtherKey="ContentItemID" Type="ContentItem" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="MetaData_ContentItems_MetaData" Member="MetaData" ThisKey="MetaDataID" OtherKey="MetaDataID" Type="MetaData" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ContentItems_Tags" Member="ContentItems_Tags">
+    <Type Name="ContentItems_Tag">
+      <Column Name="ContentItemTagID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ContentItemID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TermID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="ContentItem_ContentItems_Tag" Member="ContentItem" ThisKey="ContentItemID" OtherKey="ContentItemID" Type="ContentItem" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Taxonomy_Term_ContentItems_Tag" Member="Taxonomy_Term" ThisKey="TermID" OtherKey="TermID" Type="Taxonomy_Term" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ContentTypes" Member="ContentTypes">
+    <Type Name="ContentType">
+      <Column Name="ContentTypeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ContentType" Member="ContentType1" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="ContentType_ContentItem" Member="ContentItems" ThisKey="ContentTypeID" OtherKey="ContentTypeID" Type="ContentItem" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CoreMessaging_MessageAttachments" Member="CoreMessaging_MessageAttachments">
+    <Type Name="CoreMessaging_MessageAttachment">
+      <Column Name="MessageAttachmentID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MessageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FileID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="CoreMessaging_Message_CoreMessaging_MessageAttachment" Member="CoreMessaging_Message" ThisKey="MessageID" OtherKey="MessageID" Type="CoreMessaging_Message" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CoreMessaging_MessageRecipients" Member="CoreMessaging_MessageRecipients">
+    <Type Name="CoreMessaging_MessageRecipient">
+      <Column Name="RecipientID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MessageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="[Read]" Member="Read" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Archived" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="EmailSent" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="EmailSentDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EmailSchedulerInstance" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="CoreMessaging_Message_CoreMessaging_MessageRecipient" Member="CoreMessaging_Message" ThisKey="MessageID" OtherKey="MessageID" Type="CoreMessaging_Message" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CoreMessaging_Messages" Member="CoreMessaging_Messages">
+    <Type Name="CoreMessaging_Message">
+      <Column Name="MessageID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PortalID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NotificationTypeID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[To]" Member="To" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="[From]" Member="From" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Subject" Type="System.String" DbType="NVarChar(400)" CanBeNull="true" />
+      <Column Name="Body" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ConversationID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ReplyAllAllowed" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SenderUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ExpirationDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Context" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="IncludeDismissAction" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="CoreMessaging_Message_CoreMessaging_MessageAttachment" Member="CoreMessaging_MessageAttachments" ThisKey="MessageID" OtherKey="MessageID" Type="CoreMessaging_MessageAttachment" />
+      <Association Name="CoreMessaging_Message_CoreMessaging_MessageRecipient" Member="CoreMessaging_MessageRecipients" ThisKey="MessageID" OtherKey="MessageID" Type="CoreMessaging_MessageRecipient" />
+      <Association Name="CoreMessaging_NotificationType_CoreMessaging_Message" Member="CoreMessaging_NotificationType" ThisKey="NotificationTypeID" OtherKey="NotificationTypeID" Type="CoreMessaging_NotificationType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CoreMessaging_NotificationTypeActions" Member="CoreMessaging_NotificationTypeActions">
+    <Type Name="CoreMessaging_NotificationTypeAction">
+      <Column Name="NotificationTypeActionID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NotificationTypeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NameResourceKey" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="DescriptionResourceKey" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ConfirmResourceKey" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="[Order]" Member="Order" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="APICall" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="CoreMessaging_NotificationType_CoreMessaging_NotificationTypeAction" Member="CoreMessaging_NotificationType" ThisKey="NotificationTypeID" OtherKey="NotificationTypeID" Type="CoreMessaging_NotificationType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CoreMessaging_NotificationTypes" Member="CoreMessaging_NotificationTypes">
+    <Type Name="CoreMessaging_NotificationType">
+      <Column Name="NotificationTypeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="TTL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DesktopModuleID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="CoreMessaging_NotificationType_CoreMessaging_Message" Member="CoreMessaging_Messages" ThisKey="NotificationTypeID" OtherKey="NotificationTypeID" Type="CoreMessaging_Message" />
+      <Association Name="CoreMessaging_NotificationType_CoreMessaging_NotificationTypeAction" Member="CoreMessaging_NotificationTypeActions" ThisKey="NotificationTypeID" OtherKey="NotificationTypeID" Type="CoreMessaging_NotificationTypeAction" />
+      <Association Name="DesktopModule_CoreMessaging_NotificationType" Member="DesktopModule" ThisKey="DesktopModuleID" OtherKey="DesktopModuleID" Type="DesktopModule" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Dashboard_Controls" Member="Dashboard_Controls">
+    <Type Name="Dashboard_Control">
+      <Column Name="DashboardControlID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DashboardControlKey" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IsEnabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DashboardControlSrc" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="DashboardControlLocalResources" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="ControllerClass" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="ViewOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PackageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Package_Dashboard_Control" Member="Package" ThisKey="PackageID" OtherKey="PackageID" Type="Package" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DesktopModulePermission" Member="DesktopModulePermissions">
+    <Type Name="DesktopModulePermission">
+      <Column Name="DesktopModulePermissionID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PortalDesktopModuleID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PermissionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AllowAccess" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="RoleID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Permission_DesktopModulePermission" Member="Permission" ThisKey="PermissionID" OtherKey="PermissionID" Type="Permission" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="PortalDesktopModule_DesktopModulePermission" Member="PortalDesktopModule" ThisKey="PortalDesktopModuleID" OtherKey="PortalDesktopModuleID" Type="PortalDesktopModule" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="User_DesktopModulePermission" Member="User" ThisKey="UserID" OtherKey="UserID" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DesktopModules" Member="DesktopModules">
+    <Type Name="DesktopModule">
+      <Column Name="DesktopModuleID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FriendlyName" Type="System.String" DbType="NVarChar(128) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="Version" Type="System.String" DbType="NVarChar(8)" CanBeNull="true" />
+      <Column Name="IsPremium" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsAdmin" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="BusinessControllerClass" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="FolderName" Type="System.String" DbType="NVarChar(128) NOT NULL" CanBeNull="false" />
+      <Column Name="ModuleName" Type="System.String" DbType="NVarChar(128) NOT NULL" CanBeNull="false" />
+      <Column Name="SupportedFeatures" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CompatibleVersions" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Dependencies" Type="System.String" DbType="NVarChar(400)" CanBeNull="true" />
+      <Column Name="Permissions" Type="System.String" DbType="NVarChar(400)" CanBeNull="true" />
+      <Column Name="PackageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ContentItemId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="DesktopModule_CoreMessaging_NotificationType" Member="CoreMessaging_NotificationTypes" ThisKey="DesktopModuleID" OtherKey="DesktopModuleID" Type="CoreMessaging_NotificationType" />
+      <Association Name="DesktopModule_ModuleDefinition" Member="ModuleDefinitions" ThisKey="DesktopModuleID" OtherKey="DesktopModuleID" Type="ModuleDefinition" />
+      <Association Name="DesktopModule_PortalDesktopModule" Member="PortalDesktopModules" ThisKey="DesktopModuleID" OtherKey="DesktopModuleID" Type="PortalDesktopModule" />
+      <Association Name="Package_DesktopModule" Member="Package" ThisKey="PackageID" OtherKey="PackageID" Type="Package" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EventLog" Member="EventLogs">
+    <Type Name="EventLog">
+      <Column Name="LogGUID" Type="System.String" DbType="VarChar(36) NOT NULL" CanBeNull="false" />
+      <Column Name="LogTypeKey" Type="System.String" DbType="NVarChar(35) NOT NULL" CanBeNull="false" />
+      <Column Name="LogConfigID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LogUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LogUserName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LogPortalID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LogPortalName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LogCreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LogServerName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LogProperties" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="LogNotificationPending" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LogEventID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="EventLogConfig_EventLog" Member="EventLogConfig" ThisKey="LogConfigID" OtherKey="ID" Type="EventLogConfig" IsForeignKey="true" />
+      <Association Name="EventLogType_EventLog" Member="EventLogType" ThisKey="LogTypeKey" OtherKey="LogTypeKey" Type="EventLogType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EventLogConfig" Member="EventLogConfigs">
+    <Type Name="EventLogConfig">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LogTypeKey" Type="System.String" DbType="NVarChar(35)" CanBeNull="true" />
+      <Column Name="LogTypePortalID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LoggingIsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="KeepMostRecent" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EmailNotificationIsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="NotificationThreshold" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NotificationThresholdTime" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NotificationThresholdTimeType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MailFromAddress" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MailToAddress" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="EventLogConfig_EventLog" Member="EventLogs" ThisKey="ID" OtherKey="LogConfigID" Type="EventLog" />
+      <Association Name="EventLogType_EventLogConfig" Member="EventLogType" ThisKey="LogTypeKey" OtherKey="LogTypeKey" Type="EventLogType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EventLogTypes" Member="EventLogTypes">
+    <Type Name="EventLogType">
+      <Column Name="LogTypeKey" Type="System.String" DbType="NVarChar(35) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LogTypeFriendlyName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LogTypeDescription" Type="System.String" DbType="NVarChar(128) NOT NULL" CanBeNull="false" />
+      <Column Name="LogTypeOwner" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="LogTypeCSSClass" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
+      <Association Name="EventLogType_EventLog" Member="EventLogs" ThisKey="LogTypeKey" OtherKey="LogTypeKey" Type="EventLog" />
+      <Association Name="EventLogType_EventLogConfig" Member="EventLogConfigs" ThisKey="LogTypeKey" OtherKey="LogTypeKey" Type="EventLogConfig" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EventQueue" Member="EventQueues">
+    <Type Name="EventQueue">
+      <Column Name="EventMessageID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EventName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Priority" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProcessorType" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="ProcessorCommand" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Body" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Sender" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Subscriber" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="AuthorizedRoles" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="ExceptionMessage" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="SentDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ExpirationDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Attributes" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="IsComplete" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Files" Member="Files">
+    <Type Name="File">
+      <Column Name="FileId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PortalId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FileName" Type="System.String" DbType="NVarChar(246) NOT NULL" CanBeNull="false" />
+      <Column Name="Extension" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Size" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Width" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Height" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ContentType" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Folder" Type="System.String" DbType="NVarChar(246)" CanBeNull="true" />
+      <Column Name="FolderID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Content" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UniqueId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="VersionGuid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="SHA1Hash" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="LastModificationTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Folder_File" Member="Folder1" ThisKey="FolderID" OtherKey="FolderID" Type="Folder" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Portal_File" Member="Portal" ThisKey="PortalId" OtherKey="PortalID" Type="Portal" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FolderMappings" Member="FolderMappings">
+    <Type Name="FolderMapping">
+      <Column Name="FolderMappingID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PortalID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MappingName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FolderProviderType" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Priority" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="FolderMapping_FolderMappingsSetting" Member="FolderMappingsSettings" ThisKey="FolderMappingID" OtherKey="FolderMappingID" Type="FolderMappingsSetting" />
+      <Association Name="Portal_FolderMapping" Member="Portal" ThisKey="PortalID" OtherKey="PortalID" Type="Portal" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FolderMappingsSettings" Member="FolderMappingsSettings">
+    <Type Name="FolderMappingsSetting">
+      <Column Name="FolderMappingID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SettingName" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SettingValue" Type="System.String" DbType="NVarChar(2000) NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="FolderMapping_FolderMappingsSetting" Member="FolderMapping" ThisKey="FolderMappingID" OtherKey="FolderMappingID" Type="FolderMapping" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FolderPermission" Member="FolderPermissions">
+    <Type Name="FolderPermission">
+      <Column Name="FolderPermissionID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FolderID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PermissionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AllowAccess" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="RoleID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Folder_FolderPermission" Member="Folder" ThisKey="FolderID" OtherKey="FolderID" Type="Folder" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Permission_FolderPermission" Member="Permission" ThisKey="PermissionID" OtherKey="PermissionID" Type="Permission" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="User_FolderPermission" Member="User" ThisKey="UserID" OtherKey="UserID" Type="User" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Folders" Member="Folders">
+    <Type Name="Folder">
+      <Column Name="FolderID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PortalID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FolderPath" Type="System.String" DbType="NVarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="StorageLocation" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IsProtected" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsCached" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LastUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UniqueId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="VersionGuid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="FolderMappingID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Folder_File" Member="Files" ThisKey="FolderID" OtherKey="FolderID" Type="File" />
+      <Association Name="Folder_FolderPermission" Member="FolderPermissions" ThisKey="FolderID" OtherKey="FolderID" Type="FolderPermission" />
+      <Association Name="Portal_Folder" Member="Portal" ThisKey="PortalID" OtherKey="PortalID" Type="Portal" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HostSettings" Member="HostSettings">
+    <Type Name="HostSetting">
+      <Column Name="SettingName" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SettingValue" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="SettingIsSecure" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HtmlText" Member="HtmlTexts">
+    <Type Name="HtmlText">
+      <Column Name="ModuleID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ItemID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Content" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Version" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StateID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsPublished" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Summary" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="HtmlText_HtmlTextLog" Member="HtmlTextLogs" ThisKey="ItemID" OtherKey="ItemID" Type="HtmlTextLog" />
+      <Association Name="HtmlText_HtmlTextUser" Member="HtmlTextUsers" ThisKey="ItemID" OtherKey="ItemID" Type="HtmlTextUser" />
+      <Association Name="Module_HtmlText" Member="Module" ThisKey="ModuleID" OtherKey="ModuleID" Type="Module" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="WorkflowState_HtmlText" Member="WorkflowState" ThisKey="StateID" OtherKey="StateID" Type="WorkflowState" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HtmlTextLog" Member="HtmlTextLogs">
+    <Type Name="HtmlTextLog">
+      <Column Name="HtmlTextLogID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ItemID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StateID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Comment" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="Approved" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="HtmlText_HtmlTextLog" Member="HtmlText" ThisKey="ItemID" OtherKey="ItemID" Type="HtmlText" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="WorkflowState_HtmlTextLog" Member="WorkflowState" ThisKey="StateID" OtherKey="StateID" Type="WorkflowState" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HtmlTextUsers" Member="HtmlTextUsers">
+    <Type Name="HtmlTextUser">
+      <Column Name="HtmlTextUserID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ItemID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StateID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ModuleID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TabID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="HtmlText_HtmlTextUser" Member="HtmlText" ThisKey="ItemID" OtherKey="ItemID" Type="HtmlText" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Journal" Member="Journals">
+    <Type Name="Journal">
+      <Column Name="JournalId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="JournalTypeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PortalId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ProfileId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="GroupId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Summary" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="ItemData" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="ImageURL" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ObjectKey" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="AccessKey" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="ContentItemId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Journal_Journal_Comment" Member="Journal_Comments" ThisKey="JournalId" OtherKey="JournalId" Type="Journal_Comment" />
+      <Association Name="Journal_Journal_Data" Member="Journal_Datas" ThisKey="JournalId" OtherKey="JournalId" Type="Journal_Data" />
+      <Association Name="Journal_Type_Journal" Member="Journal_Type" ThisKey="JournalTypeId" OtherKey="JournalTypeId" Type="Journal_Type" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Journal_Access" Member="Journal_Accesses">
+    <Type Name="Journal_Access">
+      <Column Name="JournalAccessId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="JournalTypeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PortalId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AccessKey" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="IsEnabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Journal_Comments" Member="Journal_Comments">
+    <Type Name="Journal_Comment">
+      <Column Name="CommentId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="JournalId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Comment" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="CommentXML" Type="System.Xml.Linq.XElement" DbType="Xml" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Journal_Journal_Comment" Member="Journal" ThisKey="JournalId" OtherKey="JournalId" Type="Journal" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Journal_Data" Member="Journal_Datas">
+    <Type Name="Journal_Data">
+      <Column Name="JournalDataId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="JournalId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="JournalXML" Type="System.Xml.Linq.XElement" DbType="Xml NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="Journal_Journal_Data" Member="Journal" ThisKey="JournalId" OtherKey="JournalId" Type="Journal" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Journal_Security" Member="Journal_Securities">
+    <Type Name="Journal_Security">
+      <Column Name="JournalSecurityId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="JournalId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SecurityKey" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Journal_TypeFilters" Member="Journal_TypeFilters">
+    <Type Name="Journal_TypeFilter">
+      <Column Name="JournalTypeFilterId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PortalId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ModuleId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="JournalTypeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Journal_Types" Member="Journal_Types">
+    <Type Name="Journal_Type">
+      <Column Name="JournalTypeId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="JournalType" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="icon" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="PortalId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IsEnabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AppliesToProfile" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AppliesToGroup" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AppliesToStream" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Options" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SupportsNotify" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="EnableComments" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Journal_Type_Journal" Member="Journals" ThisKey="JournalTypeId" OtherKey="JournalTypeId" Type="Journal" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LanguagePacks" Member="LanguagePacks">
+    <Type Name="LanguagePack">
+      <Column Name="LanguagePackID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PackageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DependentPackageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Language_LanguagePack" Member="Language" ThisKey="LanguageID" OtherKey="LanguageID" Type="Language" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Package_LanguagePack" Member="Package" ThisKey="PackageID" OtherKey="PackageID" Type="Package" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Languages" Member="Languages">
+    <Type Name="Language">
+      <Column Name="LanguageID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CultureCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CultureName" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="FallbackCulture" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Language_LanguagePack" Member="LanguagePacks" ThisKey="LanguageID" OtherKey="LanguageID" Type="LanguagePack" />
+      <Association Name="Language_PortalLanguage" Member="PortalLanguages" ThisKey="LanguageID" OtherKey="LanguageID" Type="PortalLanguage" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Links" Member="Links">
+    <Type Name="Link">
+      <Column Name="ItemID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ModuleID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Url" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="ViewOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="CreatedByUser" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Module_Link" Member="Module" ThisKey="ModuleID" OtherKey="ModuleID" Type="Module" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Lists" Member="Lists">
+    <Type Name="List">
+      <Column Name="EntryID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ListName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Value" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Text" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="ParentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="[Level]" Member="Level" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SortOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DefinitionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="PortalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SystemList" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Messaging_Messages" Member="Messaging_Messages">
+    <Type Name="Messaging_Message">
+      <Column Name="MessageID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PortalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FromUserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ToUserName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FromUserName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ToUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ToRoleID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="Subject" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Body" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Conversation" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="ReplyTo" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="AllowReply" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="SkipPortal" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="EmailSent" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="EmailSentDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EmailSchedulerInstance" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MetaData" Member="MetaDatas">
+    <Type Name="MetaData">
+      <Column Name="MetaDataID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MetaDataName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="MetaDataDescription" Type="System.String" DbType="NVarChar(2500)" CanBeNull="true" />
+      <Association Name="MetaData_ContentItems_MetaData" Member="ContentItems_MetaDatas" ThisKey="MetaDataID" OtherKey="MetaDataID" Type="ContentItems_MetaData" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Mobile_PreviewProfiles" Member="Mobile_PreviewProfiles">
+    <Type Name="Mobile_PreviewProfile">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PortalId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Width" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Height" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserAgent" Type="System.String" DbType="NVarChar(260) NOT NULL" CanBeNull="false" />
+      <Column Name="SortOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Portal_Mobile_PreviewProfile" Member="Portal" ThisKey="PortalId" OtherKey="PortalID" Type="Portal" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Mobile_RedirectionRules" Member="Mobile_RedirectionRules">
+    <Type Name="Mobile_RedirectionRule">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RedirectionId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Capability" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Expression" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Mobile_Redirection_Mobile_RedirectionRule" Member="Mobile_Redirection" ThisKey="RedirectionId" OtherKey="Id" Type="Mobile_Redirection" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Mobile_Redirections" Member="Mobile_Redirections">
+    <Type Name="Mobile_Redirection">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PortalId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SortOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SourceTabId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IncludeChildTabs" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="TargetType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TargetValue" Type="System.String" DbType="NVarChar(260) NOT NULL" CanBeNull="false" />
+      <Column Name="Enabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Mobile_Redirection_Mobile_RedirectionRule" Member="Mobile_RedirectionRules" ThisKey="Id" OtherKey="RedirectionId" Type="Mobile_RedirectionRule" />
+      <Association Name="Portal_Mobile_Redirection" Member="Portal" ThisKey="PortalId" OtherKey="PortalID" Type="Portal" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ModuleControls" Member="ModuleControls">
+    <Type Name="ModuleControl">
+      <Column Name="ModuleControlID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ModuleDefID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ControlKey" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ControlTitle" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ControlSrc" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="IconFile" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ControlType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ViewOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HelpUrl" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="SupportsPartialRendering" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SupportsPopUps" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="ModuleDefinition_ModuleControl" Member="ModuleDefinition" ThisKey="ModuleDefID" OtherKey="ModuleDefID" Type="ModuleDefinition" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ModuleDefinitions" Member="ModuleDefinitions">
+    <Type Name="ModuleDefinition">
+      <Column Name="ModuleDefID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FriendlyName" Type="System.String" DbType="NVarChar(128) NOT NULL" CanBeNull="false" />
+      <Column Name="DesktopModuleID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DefaultCacheTime" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="ModuleDefinition_ModuleControl" Member="ModuleControls" ThisKey="ModuleDefID" OtherKey="ModuleDefID" Type="ModuleControl" />
+      <Association Name="ModuleDefinition_Module" Member="Modules" ThisKey="ModuleDefID" OtherKey="ModuleDefID" Type="Module" />
+      <Association Name="DesktopModule_ModuleDefinition" Member="DesktopModule" ThisKey="DesktopModuleID" OtherKey="DesktopModuleID" Type="DesktopModule" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ModulePermission" Member="ModulePermissions">
+    <Type Name="ModulePermission">
+      <Column Name="ModulePermissionID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ModuleID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PermissionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AllowAccess" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="RoleID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Module_ModulePermission" Member="Module" ThisKey="ModuleID" OtherKey="ModuleID" Type="Module" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Permission_ModulePermission" Member="Permission" ThisKey="PermissionID" OtherKey="PermissionID" Type="Permission" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="User_ModulePermission" Member="User" ThisKey="UserID" OtherKey="UserID" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Modules" Member="Modules">
+    <Type Name="Module">
+      <Column Name="ModuleID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ModuleDefID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AllTabs" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="InheritViewPermissions" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PortalID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastContentModifiedOnDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ContentItemID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Module_HtmlText" Member="HtmlTexts" ThisKey="ModuleID" OtherKey="ModuleID" Type="HtmlText" />
+      <Association Name="Module_Link" Member="Links" ThisKey="ModuleID" OtherKey="ModuleID" Type="Link" />
+      <Association Name="Module_ModulePermission" Member="ModulePermissions" ThisKey="ModuleID" OtherKey="ModuleID" Type="ModulePermission" />
+      <Association Name="Module_ModuleSetting" Member="ModuleSettings" ThisKey="ModuleID" OtherKey="ModuleID" Type="ModuleSetting" />
+      <Association Name="Module_SearchItem" Member="SearchItems" ThisKey="ModuleID" OtherKey="ModuleId" Type="SearchItem" />
+      <Association Name="Module_TabModule" Member="TabModules" ThisKey="ModuleID" OtherKey="ModuleID" Type="TabModule" />
+      <Association Name="ContentItem_Module" Member="ContentItem" ThisKey="ContentItemID" OtherKey="ContentItemID" Type="ContentItem" IsForeignKey="true" />
+      <Association Name="ModuleDefinition_Module" Member="ModuleDefinition" ThisKey="ModuleDefID" OtherKey="ModuleDefID" Type="ModuleDefinition" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Portal_Module" Member="Portal" ThisKey="PortalID" OtherKey="PortalID" Type="Portal" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ModuleSettings" Member="ModuleSettings">
+    <Type Name="ModuleSetting">
+      <Column Name="ModuleID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SettingName" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SettingValue" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Module_ModuleSetting" Member="Module" ThisKey="ModuleID" OtherKey="ModuleID" Type="Module" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Packages" Member="Packages">
+    <Type Name="Package">
+      <Column Name="PackageID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PortalID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(128) NOT NULL" CanBeNull="false" />
+      <Column Name="FriendlyName" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="PackageType" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Version" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="License" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Manifest" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Owner" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Organization" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Url" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ReleaseNotes" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IsSystemPackage" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FolderName" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
+      <Column Name="IconFile" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="Package_Assembly" Member="Assemblies" ThisKey="PackageID" OtherKey="PackageID" Type="Assembly" />
+      <Association Name="Package_Authentication" Member="Authentications" ThisKey="PackageID" OtherKey="PackageID" Type="Authentication" />
+      <Association Name="Package_Dashboard_Control" Member="Dashboard_Controls" ThisKey="PackageID" OtherKey="PackageID" Type="Dashboard_Control" />
+      <Association Name="Package_DesktopModule" Member="DesktopModules" ThisKey="PackageID" OtherKey="PackageID" Type="DesktopModule" />
+      <Association Name="Package_LanguagePack" Member="LanguagePacks" ThisKey="PackageID" OtherKey="PackageID" Type="LanguagePack" />
+      <Association Name="Package_SkinControl" Member="SkinControls" ThisKey="PackageID" OtherKey="PackageID" Type="SkinControl" />
+      <Association Name="Package_SkinPackage" Member="SkinPackages" ThisKey="PackageID" OtherKey="PackageID" Type="SkinPackage" />
+      <Association Name="PackageType_Package" Member="PackageType1" ThisKey="PackageType" OtherKey="PackageType1" Type="PackageType" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PackageTypes" Member="PackageTypes">
+    <Type Name="PackageType">
+      <Column Name="PackageType" Member="PackageType1" Type="System.String" DbType="NVarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="SecurityAccessLevel" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EditorControlSrc" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Association Name="PackageType_Package" Member="Packages" ThisKey="PackageType1" OtherKey="PackageType" Type="Package" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Permission" Member="Permissions">
+    <Type Name="Permission">
+      <Column Name="PermissionID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PermissionCode" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ModuleDefID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PermissionKey" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PermissionName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ViewOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Permission_DesktopModulePermission" Member="DesktopModulePermissions" ThisKey="PermissionID" OtherKey="PermissionID" Type="DesktopModulePermission" />
+      <Association Name="Permission_FolderPermission" Member="FolderPermissions" ThisKey="PermissionID" OtherKey="PermissionID" Type="FolderPermission" />
+      <Association Name="Permission_ModulePermission" Member="ModulePermissions" ThisKey="PermissionID" OtherKey="PermissionID" Type="ModulePermission" />
+      <Association Name="Permission_TabPermission" Member="TabPermissions" ThisKey="PermissionID" OtherKey="PermissionID" Type="TabPermission" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PortalAlias" Member="PortalAlias">
+    <Type Name="PortalAlia">
+      <Column Name="PortalAliasID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PortalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HTTPAlias" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Portal_PortalAlia" Member="Portal" ThisKey="PortalID" OtherKey="PortalID" Type="Portal" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PortalDesktopModules" Member="PortalDesktopModules">
+    <Type Name="PortalDesktopModule">
+      <Column Name="PortalDesktopModuleID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PortalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DesktopModuleID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="PortalDesktopModule_DesktopModulePermission" Member="DesktopModulePermissions" ThisKey="PortalDesktopModuleID" OtherKey="PortalDesktopModuleID" Type="DesktopModulePermission" />
+      <Association Name="DesktopModule_PortalDesktopModule" Member="DesktopModule" ThisKey="DesktopModuleID" OtherKey="DesktopModuleID" Type="DesktopModule" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Portal_PortalDesktopModule" Member="Portal" ThisKey="PortalID" OtherKey="PortalID" Type="Portal" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PortalGroups" Member="PortalGroups">
+    <Type Name="PortalGroup">
+      <Column Name="PortalGroupID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MasterPortalID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PortalGroupName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="PortalGroupDescription" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="AuthenticationDomain" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PortalLanguages" Member="PortalLanguages">
+    <Type Name="PortalLanguage">
+      <Column Name="PortalLanguageID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PortalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsPublished" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Language_PortalLanguage" Member="Language" ThisKey="LanguageID" OtherKey="LanguageID" Type="Language" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Portal_PortalLanguage" Member="Portal" ThisKey="PortalID" OtherKey="PortalID" Type="Portal" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PortalLocalization" Member="PortalLocalizations">
+    <Type Name="PortalLocalization">
+      <Column Name="PortalID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CultureCode" Type="System.String" DbType="NVarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PortalName" Type="System.String" DbType="NVarChar(128) NOT NULL" CanBeNull="false" />
+      <Column Name="LogoFile" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FooterText" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="KeyWords" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="BackgroundFile" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="HomeTabId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LoginTabId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UserTabId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AdminTabId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SplashTabId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="RegisterTabId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SearchTabId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Portal_PortalLocalization" Member="Portal" ThisKey="PortalID" OtherKey="PortalID" Type="Portal" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Portals" Member="Portals">
+    <Type Name="Portal">
+      <Column Name="PortalID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ExpiryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UserRegistration" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BannerAdvertising" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AdministratorId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Currency" Type="System.String" DbType="Char(3)" CanBeNull="true" />
+      <Column Name="HostFee" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="HostSpace" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AdministratorRoleId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RegisteredRoleId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GUID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="PaymentProcessor" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ProcessorUserId" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ProcessorPassword" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SiteLogHistory" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DefaultLanguage" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="TimezoneOffset" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HomeDirectory" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="PageQuota" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserQuota" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PortalGroupID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Portal_AnonymousUser" Member="AnonymousUsers" ThisKey="PortalID" OtherKey="PortalID" Type="AnonymousUser" />
+      <Association Name="Portal_File" Member="Files" ThisKey="PortalID" OtherKey="PortalId" Type="File" />
+      <Association Name="Portal_FolderMapping" Member="FolderMappings" ThisKey="PortalID" OtherKey="PortalID" Type="FolderMapping" />
+      <Association Name="Portal_Folder" Member="Folders" ThisKey="PortalID" OtherKey="PortalID" Type="Folder" />
+      <Association Name="Portal_Mobile_PreviewProfile" Member="Mobile_PreviewProfiles" ThisKey="PortalID" OtherKey="PortalId" Type="Mobile_PreviewProfile" />
+      <Association Name="Portal_Mobile_Redirection" Member="Mobile_Redirections" ThisKey="PortalID" OtherKey="PortalId" Type="Mobile_Redirection" />
+      <Association Name="Portal_Module" Member="Modules" ThisKey="PortalID" OtherKey="PortalID" Type="Module" />
+      <Association Name="Portal_PortalAlia" Member="PortalAlias" ThisKey="PortalID" OtherKey="PortalID" Type="PortalAlia" />
+      <Association Name="Portal_PortalDesktopModule" Member="PortalDesktopModules" ThisKey="PortalID" OtherKey="PortalID" Type="PortalDesktopModule" />
+      <Association Name="Portal_PortalLanguage" Member="PortalLanguages" ThisKey="PortalID" OtherKey="PortalID" Type="PortalLanguage" />
+      <Association Name="Portal_PortalLocalization" Member="PortalLocalizations" ThisKey="PortalID" OtherKey="PortalID" Type="PortalLocalization" />
+      <Association Name="Portal_PortalSetting" Member="PortalSettings" ThisKey="PortalID" OtherKey="PortalID" Type="PortalSetting" />
+      <Association Name="Portal_Profile" Member="Profiles" ThisKey="PortalID" OtherKey="PortalId" Type="Profile" />
+      <Association Name="Portal_ProfilePropertyDefinition" Member="ProfilePropertyDefinitions" ThisKey="PortalID" OtherKey="PortalID" Type="ProfilePropertyDefinition" />
+      <Association Name="Portal_Relationship" Member="Relationships" ThisKey="PortalID" OtherKey="PortalID" Type="Relationship" />
+      <Association Name="Portal_RoleGroup" Member="RoleGroups" ThisKey="PortalID" OtherKey="PortalID" Type="RoleGroup" />
+      <Association Name="Portal_Role" Member="Roles" ThisKey="PortalID" OtherKey="PortalID" Type="Role" />
+      <Association Name="Portal_SiteLog" Member="SiteLogs" ThisKey="PortalID" OtherKey="PortalId" Type="SiteLog" />
+      <Association Name="Portal_SystemMessage" Member="SystemMessages" ThisKey="PortalID" OtherKey="PortalID" Type="SystemMessage" />
+      <Association Name="Portal_Tab" Member="Tabs" ThisKey="PortalID" OtherKey="PortalID" Type="Tab" />
+      <Association Name="Portal_Url" Member="Urls" ThisKey="PortalID" OtherKey="PortalID" Type="Url" />
+      <Association Name="Portal_UrlTracking" Member="UrlTrackings" ThisKey="PortalID" OtherKey="PortalID" Type="UrlTracking" />
+      <Association Name="Portal_UserPortal" Member="UserPortals" ThisKey="PortalID" OtherKey="PortalId" Type="UserPortal" />
+      <Association Name="Portal_UsersOnline" Member="UsersOnlines" ThisKey="PortalID" OtherKey="PortalID" Type="UsersOnline" />
+      <Association Name="Portal_Vendor" Member="Vendors" ThisKey="PortalID" OtherKey="PortalId" Type="Vendor" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PortalSettings" Member="PortalSettings">
+    <Type Name="PortalSetting">
+      <Column Name="PortalID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SettingName" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SettingValue" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CultureCode" Type="System.String" DbType="NVarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Portal_PortalSetting" Member="Portal" ThisKey="PortalID" OtherKey="PortalID" Type="Portal" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Profile" Member="Profiles">
+    <Type Name="Profile">
+      <Column Name="ProfileId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PortalId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProfileData" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Portal_Profile" Member="Portal" ThisKey="PortalId" OtherKey="PortalID" Type="Portal" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="User_Profile" Member="User" ThisKey="UserId" OtherKey="UserID" Type="User" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProfilePropertyDefinition" Member="ProfilePropertyDefinitions">
+    <Type Name="ProfilePropertyDefinition">
+      <Column Name="PropertyDefinitionID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PortalID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ModuleDefID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Deleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DataType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DefaultValue" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PropertyCategory" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PropertyName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Length" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Required" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ValidationExpression" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="ViewOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Visible" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DefaultVisibility" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ReadOnly" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="ProfilePropertyDefinition_UserProfile" Member="UserProfiles" ThisKey="PropertyDefinitionID" OtherKey="PropertyDefinitionID" Type="UserProfile" />
+      <Association Name="Portal_ProfilePropertyDefinition" Member="Portal" ThisKey="PortalID" OtherKey="PortalID" Type="Portal" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Relationships" Member="Relationships">
+    <Type Name="Relationship">
+      <Column Name="RelationshipID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RelationshipTypeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="PortalID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DefaultResponse" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Relationship_UserRelationshipPreference" Member="UserRelationshipPreferences" ThisKey="RelationshipID" OtherKey="RelationshipID" Type="UserRelationshipPreference" />
+      <Association Name="Relationship_UserRelationship" Member="UserRelationships" ThisKey="RelationshipID" OtherKey="RelationshipID" Type="UserRelationship" />
+      <Association Name="Portal_Relationship" Member="Portal" ThisKey="PortalID" OtherKey="PortalID" Type="Portal" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="RelationshipType_Relationship" Member="RelationshipType" ThisKey="RelationshipTypeID" OtherKey="RelationshipTypeID" Type="RelationshipType" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="User_Relationship" Member="User" ThisKey="UserID" OtherKey="UserID" Type="User" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RelationshipTypes" Member="RelationshipTypes">
+    <Type Name="RelationshipType">
+      <Column Name="RelationshipTypeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Direction" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="RelationshipType_Relationship" Member="Relationships" ThisKey="RelationshipTypeID" OtherKey="RelationshipTypeID" Type="Relationship" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RoleGroups" Member="RoleGroups">
+    <Type Name="RoleGroup">
+      <Column Name="RoleGroupID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PortalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RoleGroupName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="RoleGroup_Role" Member="Roles" ThisKey="RoleGroupID" OtherKey="RoleGroupID" Type="Role" />
+      <Association Name="Portal_RoleGroup" Member="Portal" ThisKey="PortalID" OtherKey="PortalID" Type="Portal" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Roles" Member="Roles">
+    <Type Name="Role">
+      <Column Name="RoleID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PortalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RoleName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="ServiceFee" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="BillingFrequency" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="TrialPeriod" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TrialFrequency" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="BillingPeriod" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TrialFee" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="IsPublic" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AutoAssignment" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="RoleGroupID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RSVPCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IconFile" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SecurityMode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Role_UserRole" Member="UserRoles" ThisKey="RoleID" OtherKey="RoleID" Type="UserRole" />
+      <Association Name="Portal_Role" Member="Portal" ThisKey="PortalID" OtherKey="PortalID" Type="Portal" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="RoleGroup_Role" Member="RoleGroup" ThisKey="RoleGroupID" OtherKey="RoleGroupID" Type="RoleGroup" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RoleSettings" Member="RoleSettings">
+    <Type Name="RoleSetting">
+      <Column Name="RoleSettingID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RoleID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SettingName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SettingValue" Type="System.String" DbType="NVarChar(2000) NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Schedule" Member="Schedules">
+    <Type Name="Schedule">
+      <Column Name="ScheduleID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TypeFullName" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="TimeLapse" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TimeLapseMeasurement" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="RetryTimeLapse" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RetryTimeLapseMeasurement" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="RetainHistoryNum" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AttachToEvent" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CatchUpEnabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Enabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ObjectDependencies" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="Servers" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FriendlyName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Association Name="Schedule_ScheduleHistory" Member="ScheduleHistories" ThisKey="ScheduleID" OtherKey="ScheduleID" Type="ScheduleHistory" />
+      <Association Name="Schedule_ScheduleItemSetting" Member="ScheduleItemSettings" ThisKey="ScheduleID" OtherKey="ScheduleID" Type="ScheduleItemSetting" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ScheduleHistory" Member="ScheduleHistories">
+    <Type Name="ScheduleHistory">
+      <Column Name="ScheduleHistoryID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ScheduleID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Succeeded" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LogNotes" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NextStart" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Server" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Association Name="Schedule_ScheduleHistory" Member="Schedule" ThisKey="ScheduleID" OtherKey="ScheduleID" Type="Schedule" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ScheduleItemSettings" Member="ScheduleItemSettings">
+    <Type Name="ScheduleItemSetting">
+      <Column Name="ScheduleID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SettingName" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SettingValue" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="Schedule_ScheduleItemSetting" Member="Schedule" ThisKey="ScheduleID" OtherKey="ScheduleID" Type="Schedule" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SearchCommonWords" Member="SearchCommonWords">
+    <Type Name="SearchCommonWord">
+      <Column Name="CommonWordID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CommonWord" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Locale" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SearchIndexer" Member="SearchIndexers">
+    <Type Name="SearchIndexer">
+      <Column Name="SearchIndexerID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SearchIndexerAssemblyQualifiedName" Type="System.String" DbType="Char(200) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SearchItem" Member="SearchItems">
+    <Type Name="SearchItem">
+      <Column Name="SearchItemID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(2000) NOT NULL" CanBeNull="false" />
+      <Column Name="Author" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PubDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ModuleId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SearchKey" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Guid" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="HitCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ImageFileId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="SearchItem_SearchItemWord" Member="SearchItemWords" ThisKey="SearchItemID" OtherKey="SearchItemID" Type="SearchItemWord" />
+      <Association Name="Module_SearchItem" Member="Module" ThisKey="ModuleId" OtherKey="ModuleID" Type="Module" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SearchItemWord" Member="SearchItemWords">
+    <Type Name="SearchItemWord">
+      <Column Name="SearchItemWordID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SearchItemID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SearchWordsID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Occurrences" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="SearchItemWord_SearchItemWordPosition" Member="SearchItemWordPositions" ThisKey="SearchItemWordID" OtherKey="SearchItemWordID" Type="SearchItemWordPosition" />
+      <Association Name="SearchItem_SearchItemWord" Member="SearchItem" ThisKey="SearchItemID" OtherKey="SearchItemID" Type="SearchItem" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="SearchWord_SearchItemWord" Member="SearchWord" ThisKey="SearchWordsID" OtherKey="SearchWordsID" Type="SearchWord" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SearchItemWordPosition" Member="SearchItemWordPositions">
+    <Type Name="SearchItemWordPosition">
+      <Column Name="SearchItemWordPositionID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SearchItemWordID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ContentPosition" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="SearchItemWord_SearchItemWordPosition" Member="SearchItemWord" ThisKey="SearchItemWordID" OtherKey="SearchItemWordID" Type="SearchItemWord" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SearchWord" Member="SearchWords">
+    <Type Name="SearchWord">
+      <Column Name="SearchWordsID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Word" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="IsCommon" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="HitCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="SearchWord_SearchItemWord" Member="SearchItemWords" ThisKey="SearchWordsID" OtherKey="SearchWordsID" Type="SearchItemWord" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SiteLog" Member="SiteLogs">
+    <Type Name="SiteLog">
+      <Column Name="SiteLogId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DateTime" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="PortalId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Referrer" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Url" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UserAgent" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UserHostAddress" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UserHostName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="TabId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AffiliateId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Portal_SiteLog" Member="Portal" ThisKey="PortalId" OtherKey="PortalID" Type="Portal" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SkinControls" Member="SkinControls">
+    <Type Name="SkinControl">
+      <Column Name="SkinControlID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PackageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ControlKey" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ControlSrc" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="IconFile" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="HelpUrl" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="SupportsPartialRendering" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Package_SkinControl" Member="Package" ThisKey="PackageID" OtherKey="PackageID" Type="Package" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SkinPackages" Member="SkinPackages">
+    <Type Name="SkinPackage">
+      <Column Name="SkinPackageID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PackageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PortalID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SkinName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SkinType" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="SkinPackage_Skin" Member="Skins" ThisKey="SkinPackageID" OtherKey="SkinPackageID" Type="Skin" />
+      <Association Name="Package_SkinPackage" Member="Package" ThisKey="PackageID" OtherKey="PackageID" Type="Package" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Skins" Member="Skins">
+    <Type Name="Skin">
+      <Column Name="SkinID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SkinPackageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SkinSrc" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Association Name="SkinPackage_Skin" Member="SkinPackage" ThisKey="SkinPackageID" OtherKey="SkinPackageID" Type="SkinPackage" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SystemMessages" Member="SystemMessages">
+    <Type Name="SystemMessage">
+      <Column Name="MessageID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PortalID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MessageName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MessageValue" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="Portal_SystemMessage" Member="Portal" ThisKey="PortalID" OtherKey="PortalID" Type="Portal" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TabModules" Member="TabModules">
+    <Type Name="TabModule">
+      <Column Name="TabModuleID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TabID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ModuleID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PaneName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ModuleOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CacheTime" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Alignment" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="Color" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Border" Type="System.String" DbType="NVarChar(1)" CanBeNull="true" />
+      <Column Name="IconFile" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Visibility" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ContainerSrc" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="DisplayTitle" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DisplayPrint" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DisplaySyndicate" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsWebSlice" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="WebSliceTitle" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="WebSliceExpiryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="WebSliceTTL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CacheMethod" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ModuleTitle" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="Header" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Footer" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CultureCode" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="UniqueId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="VersionGuid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="DefaultLanguageGuid" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="LocalizedVersionGuid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Association Name="TabModule_TabModuleSetting" Member="TabModuleSettings" ThisKey="TabModuleID" OtherKey="TabModuleID" Type="TabModuleSetting" />
+      <Association Name="Module_TabModule" Member="Module" ThisKey="ModuleID" OtherKey="ModuleID" Type="Module" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Tab_TabModule" Member="Tab" ThisKey="TabID" OtherKey="TabID" Type="Tab" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TabModuleSettings" Member="TabModuleSettings">
+    <Type Name="TabModuleSetting">
+      <Column Name="TabModuleID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SettingName" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SettingValue" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="TabModule_TabModuleSetting" Member="TabModule" ThisKey="TabModuleID" OtherKey="TabModuleID" Type="TabModule" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TabPermission" Member="TabPermissions">
+    <Type Name="TabPermission">
+      <Column Name="TabPermissionID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TabID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PermissionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AllowAccess" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="RoleID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Permission_TabPermission" Member="Permission" ThisKey="PermissionID" OtherKey="PermissionID" Type="Permission" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Tab_TabPermission" Member="Tab" ThisKey="TabID" OtherKey="TabID" Type="Tab" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="User_TabPermission" Member="User" ThisKey="UserID" OtherKey="UserID" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabs" Member="Tabs">
+    <Type Name="Tab">
+      <Column Name="TabID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TabOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PortalID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TabName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IsVisible" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ParentId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IconFile" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DisableLink" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="KeyWords" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Url" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="SkinSrc" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ContainerSrc" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="RefreshInterval" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PageHeadText" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="IsSecure" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="PermanentRedirect" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="SiteMapPriority" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IconFileLarge" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CultureCode" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="ContentItemID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UniqueId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="VersionGuid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="DefaultLanguageGuid" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="LocalizedVersionGuid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="[Level]" Member="Level" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TabPath" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Association Name="Tab_TabModule" Member="TabModules" ThisKey="TabID" OtherKey="TabID" Type="TabModule" />
+      <Association Name="Tab_TabPermission" Member="TabPermissions" ThisKey="TabID" OtherKey="TabID" Type="TabPermission" />
+      <Association Name="Tab_Tab" Member="Tabs" ThisKey="TabID" OtherKey="ParentId" Type="Tab" />
+      <Association Name="Tab_TabSetting" Member="TabSettings" ThisKey="TabID" OtherKey="TabID" Type="TabSetting" />
+      <Association Name="ContentItem_Tab" Member="ContentItem" ThisKey="ContentItemID" OtherKey="ContentItemID" Type="ContentItem" IsForeignKey="true" />
+      <Association Name="Portal_Tab" Member="Portal" ThisKey="PortalID" OtherKey="PortalID" Type="Portal" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Tab_Tab" Member="Tab1" ThisKey="ParentId" OtherKey="TabID" Type="Tab" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TabSettings" Member="TabSettings">
+    <Type Name="TabSetting">
+      <Column Name="TabID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SettingName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SettingValue" Type="System.String" DbType="NVarChar(2000) NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Tab_TabSetting" Member="Tab" ThisKey="TabID" OtherKey="TabID" Type="Tab" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Taxonomy_ScopeTypes" Member="Taxonomy_ScopeTypes">
+    <Type Name="Taxonomy_ScopeType">
+      <Column Name="ScopeTypeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ScopeType" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Association Name="Taxonomy_ScopeType_Taxonomy_Vocabulary" Member="Taxonomy_Vocabularies" ThisKey="ScopeTypeID" OtherKey="ScopeTypeID" Type="Taxonomy_Vocabulary" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Taxonomy_Terms" Member="Taxonomy_Terms">
+    <Type Name="Taxonomy_Term">
+      <Column Name="TermID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="VocabularyID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ParentTermID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(2500)" CanBeNull="true" />
+      <Column Name="Weight" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TermLeft" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TermRight" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Taxonomy_Term_ContentItems_Tag" Member="ContentItems_Tags" ThisKey="TermID" OtherKey="TermID" Type="ContentItems_Tag" />
+      <Association Name="Taxonomy_Term_Taxonomy_Term" Member="Taxonomy_Terms" ThisKey="TermID" OtherKey="ParentTermID" Type="Taxonomy_Term" />
+      <Association Name="Taxonomy_Term_Taxonomy_Term" Member="Taxonomy_Term1" ThisKey="ParentTermID" OtherKey="TermID" Type="Taxonomy_Term" IsForeignKey="true" />
+      <Association Name="Taxonomy_Vocabulary_Taxonomy_Term" Member="Taxonomy_Vocabulary" ThisKey="VocabularyID" OtherKey="VocabularyID" Type="Taxonomy_Vocabulary" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Taxonomy_Vocabularies" Member="Taxonomy_Vocabularies">
+    <Type Name="Taxonomy_Vocabulary">
+      <Column Name="VocabularyID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="VocabularyTypeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(2500)" CanBeNull="true" />
+      <Column Name="Weight" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ScopeID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ScopeTypeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsSystem" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Taxonomy_Vocabulary_Taxonomy_Term" Member="Taxonomy_Terms" ThisKey="VocabularyID" OtherKey="VocabularyID" Type="Taxonomy_Term" />
+      <Association Name="Taxonomy_ScopeType_Taxonomy_Vocabulary" Member="Taxonomy_ScopeType" ThisKey="ScopeTypeID" OtherKey="ScopeTypeID" Type="Taxonomy_ScopeType" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Taxonomy_VocabularyType_Taxonomy_Vocabulary" Member="Taxonomy_VocabularyType" ThisKey="VocabularyTypeID" OtherKey="VocabularyTypeID" Type="Taxonomy_VocabularyType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Taxonomy_VocabularyTypes" Member="Taxonomy_VocabularyTypes">
+    <Type Name="Taxonomy_VocabularyType">
+      <Column Name="VocabularyTypeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="VocabularyType" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Taxonomy_VocabularyType_Taxonomy_Vocabulary" Member="Taxonomy_Vocabularies" ThisKey="VocabularyTypeID" OtherKey="VocabularyTypeID" Type="Taxonomy_Vocabulary" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UrlLog" Member="UrlLogs">
+    <Type Name="UrlLog">
+      <Column Name="UrlLogID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UrlTrackingID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ClickDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="UrlTracking_UrlLog" Member="UrlTracking" ThisKey="UrlTrackingID" OtherKey="UrlTrackingID" Type="UrlTracking" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Urls" Member="Urls">
+    <Type Name="Url">
+      <Column Name="UrlID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PortalID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Url" Member="Url1" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Association Name="Portal_Url" Member="Portal" ThisKey="PortalID" OtherKey="PortalID" Type="Portal" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UrlTracking" Member="UrlTrackings">
+    <Type Name="UrlTracking">
+      <Column Name="UrlTrackingID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PortalID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Url" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="UrlType" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Clicks" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LastClick" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LogActivity" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="TrackClicks" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ModuleId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NewWindow" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="UrlTracking_UrlLog" Member="UrlLogs" ThisKey="UrlTrackingID" OtherKey="UrlTrackingID" Type="UrlLog" />
+      <Association Name="Portal_UrlTracking" Member="Portal" ThisKey="PortalID" OtherKey="PortalID" Type="Portal" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserAuthentication" Member="UserAuthentications">
+    <Type Name="UserAuthentication">
+      <Column Name="UserAuthenticationID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AuthenticationType" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="AuthenticationToken" Type="System.String" DbType="NVarChar(1000) NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="User_UserAuthentication" Member="User" ThisKey="UserID" OtherKey="UserID" Type="User" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserPortals" Member="UserPortals">
+    <Type Name="UserPortal">
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PortalId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UserPortalId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Authorised" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="RefreshRoles" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Portal_UserPortal" Member="Portal" ThisKey="PortalId" OtherKey="PortalID" Type="Portal" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="User_UserPortal" Member="User" ThisKey="UserId" OtherKey="UserID" Type="User" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserProfile" Member="UserProfiles">
+    <Type Name="UserProfile">
+      <Column Name="ProfileID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PropertyDefinitionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PropertyValue" Type="System.String" DbType="NVarChar(3750)" CanBeNull="true" />
+      <Column Name="PropertyText" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Visibility" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LastUpdatedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ExtendedVisibility" Type="System.String" DbType="VarChar(400)" CanBeNull="true" />
+      <Association Name="ProfilePropertyDefinition_UserProfile" Member="ProfilePropertyDefinition" ThisKey="PropertyDefinitionID" OtherKey="PropertyDefinitionID" Type="ProfilePropertyDefinition" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="User_UserProfile" Member="User" ThisKey="UserID" OtherKey="UserID" Type="User" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserRelationshipPreferences" Member="UserRelationshipPreferences">
+    <Type Name="UserRelationshipPreference">
+      <Column Name="PreferenceID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RelationshipID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DefaultResponse" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Relationship_UserRelationshipPreference" Member="Relationship" ThisKey="RelationshipID" OtherKey="RelationshipID" Type="Relationship" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="User_UserRelationshipPreference" Member="User" ThisKey="UserID" OtherKey="UserID" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserRelationships" Member="UserRelationships">
+    <Type Name="UserRelationship">
+      <Column Name="UserRelationshipID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RelatedUserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RelationshipID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Relationship_UserRelationship" Member="Relationship" ThisKey="RelationshipID" OtherKey="RelationshipID" Type="Relationship" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="User_UserRelationship" Member="User" ThisKey="UserID" OtherKey="UserID" Type="User" IsForeignKey="true" />
+      <Association Name="User_UserRelationship1" Member="User1" ThisKey="RelatedUserID" OtherKey="UserID" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserRoles" Member="UserRoles">
+    <Type Name="UserRole">
+      <Column Name="UserRoleID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RoleID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ExpiryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsTrialUsed" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="EffectiveDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IsOwner" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Role_UserRole" Member="Role" ThisKey="RoleID" OtherKey="RoleID" Type="Role" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="User_UserRole" Member="User" ThisKey="UserID" OtherKey="UserID" Type="User" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Users" Member="Users">
+    <Type Name="User">
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IsSuperUser" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AffiliateId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="DisplayName" Type="System.String" DbType="NVarChar(128) NOT NULL" CanBeNull="false" />
+      <Column Name="UpdatePassword" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LastIPAddress" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="User_zWorkProcess" Member="zWorkProcesses" ThisKey="UserID" OtherKey="UserID" Type="zWorkProcess" />
+      <Association Name="User_DesktopModulePermission" Member="DesktopModulePermissions" ThisKey="UserID" OtherKey="UserID" Type="DesktopModulePermission" />
+      <Association Name="User_FolderPermission" Member="FolderPermissions" ThisKey="UserID" OtherKey="UserID" Type="FolderPermission" />
+      <Association Name="User_ModulePermission" Member="ModulePermissions" ThisKey="UserID" OtherKey="UserID" Type="ModulePermission" />
+      <Association Name="User_Profile" Member="Profiles" ThisKey="UserID" OtherKey="UserId" Type="Profile" />
+      <Association Name="User_Relationship" Member="Relationships" ThisKey="UserID" OtherKey="UserID" Type="Relationship" />
+      <Association Name="User_TabPermission" Member="TabPermissions" ThisKey="UserID" OtherKey="UserID" Type="TabPermission" />
+      <Association Name="User_UserAuthentication" Member="UserAuthentications" ThisKey="UserID" OtherKey="UserID" Type="UserAuthentication" />
+      <Association Name="User_UserPortal" Member="UserPortals" ThisKey="UserID" OtherKey="UserId" Type="UserPortal" />
+      <Association Name="User_UserProfile" Member="UserProfiles" ThisKey="UserID" OtherKey="UserID" Type="UserProfile" />
+      <Association Name="User_UserRelationshipPreference" Member="UserRelationshipPreferences" ThisKey="UserID" OtherKey="UserID" Type="UserRelationshipPreference" />
+      <Association Name="User_UserRelationship" Member="UserRelationships" ThisKey="UserID" OtherKey="UserID" Type="UserRelationship" />
+      <Association Name="User_UserRelationship1" Member="UserRelationships1" ThisKey="UserID" OtherKey="RelatedUserID" Type="UserRelationship" />
+      <Association Name="User_UserRole" Member="UserRoles" ThisKey="UserID" OtherKey="UserID" Type="UserRole" />
+      <Association Name="User_UsersOnline" Member="UsersOnlines" ThisKey="UserID" OtherKey="UserID" Type="UsersOnline" />
+      <Association Name="User_zFamily" Member="zFamilies" ThisKey="UserID" OtherKey="UserID" Type="zFamily" />
+      <Association Name="User_zInOutBonus" Member="zInOutBonus" ThisKey="UserID" OtherKey="UserID" Type="zInOutBonus" />
+      <Association Name="User_zNew" Member="zNews" ThisKey="UserID" OtherKey="UserID" Type="zNew" />
+      <Association Name="User_zResearch" Member="zResearches" ThisKey="UserID" OtherKey="UserID" Type="zResearch" />
+      <Association Name="User_zSalaryLog" Member="zSalaryLogs" ThisKey="UserID" OtherKey="UserID" Type="zSalaryLog" />
+      <Association Name="User_zStudyProcess" Member="zStudyProcesses" ThisKey="UserID" OtherKey="UserID" Type="zStudyProcess" />
+      <Association Name="User_zUserDiploma" Member="zUserDiplomas" ThisKey="UserID" OtherKey="UserID" Type="zUserDiploma" />
+      <Association Name="User_zUserSalary" Member="zUserSalaries" ThisKey="UserID" OtherKey="UserID" Type="zUserSalary" />
+      <Association Name="User_zUserWork" Member="zUserWorks" ThisKey="UserID" OtherKey="UserID" Type="zUserWork" />
+      <Association Name="User_zWorkLog" Member="zWorkLogs" ThisKey="UserID" OtherKey="UserID" Type="zWorkLog" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UsersOnline" Member="UsersOnlines">
+    <Type Name="UsersOnline">
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PortalID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TabID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreationDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LastActiveDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Portal_UsersOnline" Member="Portal" ThisKey="PortalID" OtherKey="PortalID" Type="Portal" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="User_UsersOnline" Member="User" ThisKey="UserID" OtherKey="UserID" Type="User" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VendorClassification" Member="VendorClassifications">
+    <Type Name="VendorClassification">
+      <Column Name="VendorClassificationId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="VendorId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ClassificationId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Classification_VendorClassification" Member="Classification" ThisKey="ClassificationId" OtherKey="ClassificationId" Type="Classification" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Vendor_VendorClassification" Member="Vendor" ThisKey="VendorId" OtherKey="VendorId" Type="Vendor" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Vendors" Member="Vendors">
+    <Type Name="Vendor">
+      <Column Name="VendorId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="VendorName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Street" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Region" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Country" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PostalCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Telephone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PortalId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Fax" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Website" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ClickThroughs" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Views" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedByUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LogoFile" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="KeyWords" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Unit" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Authorized" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Cell" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Vendor_Affiliate" Member="Affiliates" ThisKey="VendorId" OtherKey="VendorId" Type="Affiliate" />
+      <Association Name="Vendor_Banner" Member="Banners" ThisKey="VendorId" OtherKey="VendorId" Type="Banner" />
+      <Association Name="Vendor_VendorClassification" Member="VendorClassifications" ThisKey="VendorId" OtherKey="VendorId" Type="VendorClassification" />
+      <Association Name="Portal_Vendor" Member="Portal" ThisKey="PortalId" OtherKey="PortalID" Type="Portal" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Version" Member="Versions">
+    <Type Name="Version">
+      <Column Name="VersionId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Major" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Minor" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Build" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.WebServers" Member="WebServers">
+    <Type Name="WebServer">
+      <Column Name="ServerID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ServerName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LastActivityDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="URL" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="IISAppName" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Enabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Workflow" Member="Workflows">
+    <Type Name="Workflow">
+      <Column Name="WorkflowID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PortalID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WorkflowName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Workflow_WorkflowState" Member="WorkflowStates" ThisKey="WorkflowID" OtherKey="WorkflowID" Type="WorkflowState" />
+    </Type>
+  </Table>
+  <Table Name="dbo.WorkflowStates" Member="WorkflowStates">
+    <Type Name="WorkflowState">
+      <Column Name="StateID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="WorkflowID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StateName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="[Order]" Member="Order" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Notify" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="WorkflowState_HtmlText" Member="HtmlTexts" ThisKey="StateID" OtherKey="StateID" Type="HtmlText" />
+      <Association Name="WorkflowState_HtmlTextLog" Member="HtmlTextLogs" ThisKey="StateID" OtherKey="StateID" Type="HtmlTextLog" />
+      <Association Name="Workflow_WorkflowState" Member="Workflow" ThisKey="WorkflowID" OtherKey="WorkflowID" Type="Workflow" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.zBaseSalary" Member="zBaseSalaries">
+    <Type Name="zBaseSalary">
+      <Column Name="BaseID" Type="System.String" DbType="VarChar(16) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ScaleID" Type="System.String" DbType="VarChar(16) NOT NULL" CanBeNull="false" />
+      <Column Name="SalaryLevel" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SalaryBase" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="zBaseSalary_zUserSalary" Member="zUserSalaries" ThisKey="BaseID" OtherKey="BaseID" Type="zUserSalary" />
+      <Association Name="zScaleSalary_zBaseSalary" Member="zScaleSalary" ThisKey="ScaleID" OtherKey="ScaleID" Type="zScaleSalary" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.zCatalogues" Member="zCatalogues">
+    <Type Name="zCatalogue">
+      <Column Name="CatID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CatName" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
+      <Association Name="zCatalogue_zNew" Member="zNews" ThisKey="CatID" OtherKey="CatID" Type="zNew" />
+    </Type>
+  </Table>
+  <Table Name="dbo.zCity" Member="zCities">
+    <Type Name="zCity">
+      <Column Name="CityID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CityName" Type="System.String" DbType="NVarChar(128) NOT NULL" CanBeNull="false" />
+      <Column Name="CityAbbr" Type="System.String" DbType="VarChar(64)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.zConfig" Member="zConfigs">
+    <Type Name="zConfig">
+      <Column Name="ConfigName" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
+      <Column Name="Value" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.zDepartments" Member="zDepartments">
+    <Type Name="zDepartment">
+      <Column Name="DepartmentID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="InstituteID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DepartmentName" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="DepartmentPhone" Type="System.String" DbType="VarChar(13)" CanBeNull="true" />
+      <Column Name="DepartmentFax" Type="System.String" DbType="VarChar(13)" CanBeNull="true" />
+      <Column Name="DepartmentDetail" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Association Name="zDepartment_zUserWork" Member="zUserWorks" ThisKey="DepartmentID" OtherKey="DepartmentID" Type="zUserWork" />
+      <Association Name="zInstitute_zDepartment" Member="zInstitute" ThisKey="InstituteID" OtherKey="InstituteID" Type="zInstitute" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.zDiplomas" Member="zDiplomas">
+    <Type Name="zDiploma">
+      <Column Name="DiplomaID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
+      <Association Name="zDiploma_zUserDiploma" Member="zUserDiplomas" ThisKey="DiplomaID" OtherKey="DiplomaID" Type="zUserDiploma" />
+    </Type>
+  </Table>
+  <Table Name="dbo.zEthnic" Member="zEthnics">
+    <Type Name="zEthnic">
+      <Column Name="EthnicID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EthnicName" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.zExtra" Member="zExtras">
+    <Type Name="zExtra">
+      <Column Name="ExtraID" Type="System.String" DbType="VarChar(16) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ExtraBase" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="zExtra_zUserSalary" Member="zUserSalaries" ThisKey="ExtraID" OtherKey="ExtraID" Type="zUserSalary" />
+    </Type>
+  </Table>
+  <Table Name="dbo.zFamily" Member="zFamilies">
+    <Type Name="zFamily">
+      <Column Name="FamilyID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FamilyName" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
+      <Column Name="FamilyDOB" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FamilyPhone" Type="System.String" DbType="VarChar(13)" CanBeNull="true" />
+      <Column Name="FamilyAddr" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="RelationType" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
+      <Association Name="User_zFamily" Member="User" ThisKey="UserID" OtherKey="UserID" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.zInOutBonus" Member="zInOutBonus">
+    <Type Name="zInOutBonus">
+      <Column Name="IOEID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IODone" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IOType" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IOTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IOMethod" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="IOReason" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Association Name="User_zInOutBonus" Member="User" ThisKey="UserID" OtherKey="UserID" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.zInstitutes" Member="zInstitutes">
+    <Type Name="zInstitute">
+      <Column Name="InstituteID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="InstituteName" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="InstitutePhone" Type="System.String" DbType="VarChar(13)" CanBeNull="true" />
+      <Column Name="InstituteFax" Type="System.String" DbType="VarChar(13)" CanBeNull="true" />
+      <Column Name="InstituteDetail" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Association Name="zInstitute_zDepartment" Member="zDepartments" ThisKey="InstituteID" OtherKey="InstituteID" Type="zDepartment" />
+      <Association Name="zInstitute_zResearch" Member="zResearches" ThisKey="InstituteID" OtherKey="InstituteID" Type="zResearch" />
+    </Type>
+  </Table>
+  <Table Name="dbo.zNews" Member="zNews">
+    <Type Name="zNew">
+      <Column Name="NewsID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CatID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Content" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="zCatalogue_zNew" Member="zCatalogue" ThisKey="CatID" OtherKey="CatID" Type="zCatalogue" IsForeignKey="true" />
+      <Association Name="User_zNew" Member="User" ThisKey="UserID" OtherKey="UserID" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.zOffice" Member="zOffices">
+    <Type Name="zOffice">
+      <Column Name="OfficeID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="OfficeName" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Association Name="zOffice_zUserWork" Member="zUserWorks" ThisKey="OfficeID" OtherKey="OfficeID" Type="zUserWork" />
+    </Type>
+  </Table>
+  <Table Name="dbo.zResearch" Member="zResearches">
+    <Type Name="zResearch">
+      <Column Name="ResearchID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ResearchName" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="InstituteID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ResearchDetail" Type="System.String" DbType="NVarChar(1024)" CanBeNull="true" />
+      <Column Name="StartTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FinishTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="StateID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="zInstitute_zResearch" Member="zInstitute" ThisKey="InstituteID" OtherKey="InstituteID" Type="zInstitute" IsForeignKey="true" />
+      <Association Name="User_zResearch" Member="User" ThisKey="UserID" OtherKey="UserID" Type="User" IsForeignKey="true" />
+      <Association Name="zResearchState_zResearch" Member="zResearchState" ThisKey="StateID" OtherKey="StateID" Type="zResearchState" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.zResearchState" Member="zResearchStates">
+    <Type Name="zResearchState">
+      <Column Name="StateID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="StateName" Type="System.String" DbType="NVarChar(64)" CanBeNull="true" />
+      <Association Name="zResearchState_zResearch" Member="zResearches" ThisKey="StateID" OtherKey="StateID" Type="zResearch" />
+    </Type>
+  </Table>
+  <Table Name="dbo.zSalaryLog" Member="zSalaryLogs">
+    <Type Name="zSalaryLog">
+      <Column Name="LogID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ModifiedTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NewSalary" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Association Name="User_zSalaryLog" Member="User" ThisKey="UserID" OtherKey="UserID" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.zScaleSalary" Member="zScaleSalaries">
+    <Type Name="zScaleSalary">
+      <Column Name="ScaleID" Type="System.String" DbType="VarChar(16) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ScaleName" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
+      <Association Name="zScaleSalary_zBaseSalary" Member="zBaseSalaries" ThisKey="ScaleID" OtherKey="ScaleID" Type="zBaseSalary" />
+    </Type>
+  </Table>
+  <Table Name="dbo.zStudyProcess" Member="zStudyProcesses">
+    <Type Name="zStudyProcess">
+      <Column Name="SPID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StartTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FinishTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="StudyAddr" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="Detail" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Association Name="User_zStudyProcess" Member="User" ThisKey="UserID" OtherKey="UserID" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.zUserDiploma" Member="zUserDiplomas">
+    <Type Name="zUserDiploma">
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DiplomaID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="GrantedAddr" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="GrantedTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="zDiploma_zUserDiploma" Member="zDiploma" ThisKey="DiplomaID" OtherKey="DiplomaID" Type="zDiploma" IsForeignKey="true" />
+      <Association Name="User_zUserDiploma" Member="User" ThisKey="UserID" OtherKey="UserID" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.zUserSalary" Member="zUserSalaries">
+    <Type Name="zUserSalary">
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ExtraID" Type="System.String" DbType="VarChar(16) NOT NULL" CanBeNull="false" />
+      <Column Name="BaseID" Type="System.String" DbType="VarChar(16) NOT NULL" CanBeNull="false" />
+      <Association Name="zBaseSalary_zUserSalary" Member="zBaseSalary" ThisKey="BaseID" OtherKey="BaseID" Type="zBaseSalary" IsForeignKey="true" />
+      <Association Name="zExtra_zUserSalary" Member="zExtra" ThisKey="ExtraID" OtherKey="ExtraID" Type="zExtra" IsForeignKey="true" />
+      <Association Name="User_zUserSalary" Member="User" ThisKey="UserID" OtherKey="UserID" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.zUserWork" Member="zUserWorks">
+    <Type Name="zUserWork">
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DepartmentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OfficeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StartTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="zDepartment_zUserWork" Member="zDepartment" ThisKey="DepartmentID" OtherKey="DepartmentID" Type="zDepartment" IsForeignKey="true" />
+      <Association Name="zOffice_zUserWork" Member="zOffice" ThisKey="OfficeID" OtherKey="OfficeID" Type="zOffice" IsForeignKey="true" />
+      <Association Name="User_zUserWork" Member="User" ThisKey="UserID" OtherKey="UserID" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.zWorkLog" Member="zWorkLogs">
+    <Type Name="zWorkLog">
+      <Column Name="LogID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ModifiedTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NewWork" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Association Name="User_zWorkLog" Member="User" ThisKey="UserID" OtherKey="UserID" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
