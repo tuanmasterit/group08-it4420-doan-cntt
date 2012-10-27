@@ -1,0 +1,33 @@
+<dotnetnuke version="3.0" type="Module">
+  <folders>
+    <folder>
+      <name>mLogin</name>
+      <friendlyname>mLogin</friendlyname>
+      <foldername>mLogin</foldername>
+      <modulename>mLogin</modulename>
+      <description>A mLogin module</description>
+      <version>01.00.00</version>
+      <modules>
+        <module>
+          <friendlyname>mLogin</friendlyname>
+          <cachetime>0</cachetime>
+          <controls>
+            <control>
+              <src>DesktopModules/mLogin/mLogin.ascx</src>
+              <type>View</type>
+              <helpurl></helpurl>
+            </control>
+          </controls>
+        </module>
+      </modules>
+      <files>
+        <file>
+          <name>mLogin.ascx</name>
+        </file>
+        <file>
+          <name>mLogin.ascx.cs</name>
+        </file>
+      </files>
+    </folder>
+  </folders>
+</dotnetnuke>
